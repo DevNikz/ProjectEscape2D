@@ -1,8 +1,19 @@
+using System;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class InteractManager : MonoBehaviour
 {
     public static InteractManager Instance;
+
+    public event EventHandler<bool>  OnInteractChanged;
+    public static event EventHandler OnAnyItemUsed;
+    public event EventHandler OnItemUseStarted;
+    
+    public BaseItem tempSelectedItem;
+
+    private bool hasInteracted;
+    private Camera mainCamera;
 
     void Awake()
     {
@@ -12,5 +23,89 @@ public class InteractManager : MonoBehaviour
             DontDestroyOnLoad(gameObject);
         }
         else Destroy(gameObject);
+
+        mainCamera = Camera.main;
+    }
+
+    void Update()
+    {
+        if(hasInteracted) return;
+        HandleInteraction();
+    }
+
+    void HandleInteraction()
+    {
+        if(Input.GetMouseButtonDown(0))
+        {
+            Vector2 mousePosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
+            RaycastHit2D hit = Physics2D.Raycast(mousePosition, Vector2.zero);
+
+            if(hit.collider != null)
+            {
+                Debug.Log($"Clicked on: {hit.collider.gameObject.name}");
+                //Do Something here
+                CheckObject(hit.collider.gameObject);
+            }
+        }
+    }
+
+    void CheckObject(GameObject gameObject)
+    {
+        if(gameObject.CompareTag("SingleItem"))
+        {
+            tempSelectedItem = gameObject.GetComponent<SingleItem>();
+            if(!TrySpendItemUseToUseItem(tempSelectedItem))
+            {
+                return;
+            }
+
+            SetInteract();
+            tempSelectedItem.UseItem(ClearInteract);
+            
+            OnItemUseStarted?.Invoke(this, EventArgs.Empty);
+        }
+    }
+
+    public bool TrySpendItemUseToUseItem(BaseItem baseItem)
+    {
+        if(CanSpendItemUseToUseItem(baseItem))
+        {
+            SpendActionPoints(baseItem);
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public bool CanSpendItemUseToUseItem(BaseItem baseItem)
+    {
+        if (baseItem.GetItemUses() > 0)
+        {
+            return true;
+        } 
+        else
+        {
+            return false;
+        }
+    }
+
+    private void SpendActionPoints(BaseItem baseItem)
+    {
+        baseItem.DecreaseItemUses(baseItem.GetItemUses());
+        OnAnyItemUsed?.Invoke(this, EventArgs.Empty);
+    }
+
+    private void SetInteract()
+    {
+        hasInteracted = true;
+        OnInteractChanged?.Invoke(this, hasInteracted);
+    }
+
+    private void ClearInteract()
+    {
+        hasInteracted = false;
+        OnInteractChanged?.Invoke(this, hasInteracted);
     }
 }
