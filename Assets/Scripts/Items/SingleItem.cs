@@ -26,7 +26,7 @@ public class SingleItem : BaseItem
     }
     public override string GetItemName()
     {
-        return item.name;
+        return item.itemSO.name;
     }
 
     public override void UseItem(Action onItemUseComplete)

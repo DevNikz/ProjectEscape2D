@@ -61,8 +61,9 @@ public class InteractManager : MonoBehaviour
 
             SetInteract();
             tempSelectedItem.UseItem(ClearInteract);
+            //tempSelectedItem.UseItem(ClearInteract);
             
-            OnItemUseStarted?.Invoke(this, EventArgs.Empty);
+            //OnItemUseStarted?.Invoke(this, EventArgs.Empty);
         }
     }
 

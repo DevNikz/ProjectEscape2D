@@ -15,7 +15,7 @@ public class MultiItem : BaseItem
 
     public override string GetItemName()
     {
-        return item.name;
+        return item.itemSO.name;
     }
 
     public override int GetItemUses()

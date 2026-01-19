@@ -483,11 +483,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SingleItem
   item:
-    name: RedBall
-    itemType: 1
+    itemSO: {fileID: 11400000, guid: 74c6e0b4779f53f4988b26cda868cfb9, type: 2}
     isPickedUp: 0
     isEquipped: 0
     isUsed: 0
+  itemUses: 0
 --- !u!50 &1934324847
 Rigidbody2D:
   serializedVersion: 5

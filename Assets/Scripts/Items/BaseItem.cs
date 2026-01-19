@@ -6,6 +6,7 @@ public abstract class BaseItem : MonoBehaviour
     public static event EventHandler OnAnyItemUseStarted;
     public static event EventHandler OnAnyItemUseCompleted;
 
+    protected bool hasPickedUp;
     protected bool isUsed;
     protected bool isLocked;
     protected int numUses = 1;

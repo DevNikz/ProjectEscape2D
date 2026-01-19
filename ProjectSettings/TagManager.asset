@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 3
   tags:
   - SingleItem
+  - MultiItem
+  - Inv_SingleItem
+  - Inv_MultiItem
   layers:
   - Default
   - TransparentFX
