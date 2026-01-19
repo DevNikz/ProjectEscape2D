@@ -5,6 +5,8 @@ public abstract class BaseItem : MonoBehaviour
 {
     public static event EventHandler OnAnyItemUseStarted;
     public static event EventHandler OnAnyItemUseCompleted;
+    public static event EventHandler OnAnyItemTakeStarted;
+    public static event EventHandler OnAnyItemTakeCompleted;
 
     protected bool hasPickedUp;
     protected bool isUsed;
@@ -12,8 +14,10 @@ public abstract class BaseItem : MonoBehaviour
     protected int numUses = 1;
 
     protected Action onItemUseComplete;
+    protected Action onItemTakeComplete;
     public abstract string GetItemName();
     public abstract void UseItem(Action onItemUseComplete);
+    public abstract void TakeItem(Action onItemTakeComplete);
 
     public virtual int GetItemUses()
     {
@@ -37,6 +41,21 @@ public abstract class BaseItem : MonoBehaviour
     {
         isUsed = false;
         onItemUseComplete();
+
+        OnAnyItemUseCompleted?.Invoke(this, EventArgs.Empty);
+    }
+
+    protected void ItemTakeStart(Action onItemTakeComplete)
+    {
+        hasPickedUp = true;
+        this.onItemTakeComplete = onItemTakeComplete;
+
+        OnAnyItemTakeStarted?.Invoke(this, EventArgs.Empty);
+    }
+
+    protected void ItemTakeComplete()
+    {
+        onItemTakeComplete();
 
         OnAnyItemUseCompleted?.Invoke(this, EventArgs.Empty);
     }

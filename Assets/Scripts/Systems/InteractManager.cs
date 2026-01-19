@@ -8,6 +8,7 @@ public class InteractManager : MonoBehaviour
     public event EventHandler<bool>  OnInteractChanged;
     public static event EventHandler OnAnyItemUsed;
     public event EventHandler OnItemUseStarted;
+    public event EventHandler OnItemTakeStarted;
     
     public BaseItem tempSelectedItem;
 
@@ -36,34 +37,39 @@ public class InteractManager : MonoBehaviour
     {
         if(InputManager.Instance.IsMouseButtonDownThisFrame())
         {
-            //Debug.Log("Click.");
             Vector2 mousePosition = mainCamera.ScreenToWorldPoint(InputManager.Instance.GetMouseScreenPosition());
             RaycastHit2D hit = Physics2D.Raycast(mousePosition, Vector2.zero);
 
             if(hit.collider != null)
             {
-                //Debug.Log($"Clicked on: {hit.collider.gameObject.name}");
-                //Do Something here
-                CheckObject(hit.collider.gameObject);
+                CheckItem(hit.collider.gameObject);
             }
         }
     }
 
-    void CheckObject(GameObject gameObject)
+    void CheckItem(GameObject gameObject)
     {
         if(gameObject.CompareTag("SingleItem"))
         {
             tempSelectedItem = gameObject.GetComponent<SingleItem>();
-            if(!TrySpendItemUseToUseItem(tempSelectedItem))
-            {
-                return;
-            }
+            if(!TrySpendItemUseToUseItem(tempSelectedItem)) return;
 
             SetInteract();
-            tempSelectedItem.UseItem(ClearInteract);
+            tempSelectedItem.TakeItem(ClearInteract);
             //tempSelectedItem.UseItem(ClearInteract);
             
+            OnItemTakeStarted?.Invoke(this, EventArgs.Empty);
             //OnItemUseStarted?.Invoke(this, EventArgs.Empty);
+        }
+
+        if(gameObject.CompareTag("MultiItem"))
+        {
+            tempSelectedItem = gameObject.GetComponent<MultiItem>();
+            if(!TrySpendItemUseToUseItem(tempSelectedItem)) return;
+
+            SetInteract();
+            tempSelectedItem.TakeItem(ClearInteract);
+            OnItemTakeStarted?.Invoke(this, EventArgs.Empty);
         }
     }
 
@@ -74,22 +80,13 @@ public class InteractManager : MonoBehaviour
             SpendActionPoints(baseItem);
             return true;
         }
-        else
-        {
-            return false;
-        }
+        else return false;
     }
 
     public bool CanSpendItemUseToUseItem(BaseItem baseItem)
     {
-        if (baseItem.GetItemUses() > 0)
-        {
-            return true;
-        } 
-        else
-        {
-            return false;
-        }
+        if (baseItem.GetItemUses() > 0) return true;
+        else return false;
     }
 
     private void SpendActionPoints(BaseItem baseItem)

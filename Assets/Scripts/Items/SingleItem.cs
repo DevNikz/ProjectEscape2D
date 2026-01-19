@@ -5,28 +5,44 @@ using UnityEngine;
 //Make sure this object's tag is set to "SingleItem"
 public class SingleItem : BaseItem
 {
-    public event EventHandler OnItemStarted;
-    public event EventHandler OnItemCompleted;
+    public event EventHandler OnItemUseStarted;
+    public event EventHandler OnItemUseCompleted;
+    public event EventHandler OnItemTakeStarted;
+    public event EventHandler OnItemTakeCompleted;
+
+
     [SerializeField] public Item item;
     [SerializeField] public int itemUses;
 
     void Update()
     {
         itemUses = GetItemUses();
-        if(!isUsed) return;
+        if(!hasPickedUp) return;
         else
         {
-            //Do something here maybe or a checker?
-
-            //OnItemCompleted?.Invoke(this, EventArgs.Empty);
-            //ItemUseComplete();
-            OnItemCompleted?.Invoke(this, EventArgs.Empty);
-            OnSingleItemComplete();
+            OnItemTakeCompleted?.Invoke(this, EventArgs.Empty);
+            OnPickupItemComplete();
         }
+        // if(!isUsed) return;
+        // else
+        // {
+        //     //Do something here maybe or a checker?
+
+        //     //OnItemCompleted?.Invoke(this, EventArgs.Empty);
+        //     //ItemUseComplete();
+        //     OnItemUseCompleted?.Invoke(this, EventArgs.Empty);
+        //     OnSingleItemComplete();
+        // }
     }
     public override string GetItemName()
     {
         return item.itemSO.name;
+    }
+
+    public override void TakeItem(Action onItemTakeComplete)
+    {
+        OnItemTakeStarted?.Invoke(this, EventArgs.Empty);
+        ItemTakeStart(onItemTakeComplete);
     }
 
     public override void UseItem(Action onItemUseComplete)
@@ -34,7 +50,7 @@ public class SingleItem : BaseItem
         //Do something here (i.e. open door or something)
         //Debug.Log($"{gameObject.name} has started.");
 
-        OnItemStarted?.Invoke(this, EventArgs.Empty);
+        OnItemUseStarted?.Invoke(this, EventArgs.Empty);
         ItemUseStart(onItemUseComplete);
     }
 
@@ -42,6 +58,11 @@ public class SingleItem : BaseItem
     {
         //Debug.Log($"{gameObject.name} has been used.");
         ItemUseComplete();
+    }
+
+    private void OnPickupItemComplete()
+    {
+        ItemTakeComplete();
     }
 
     public Item GetItem()
