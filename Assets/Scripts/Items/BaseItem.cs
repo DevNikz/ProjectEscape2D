@@ -8,6 +8,7 @@ public abstract class BaseItem : MonoBehaviour
 
     protected bool isUsed;
     protected bool isLocked;
+    protected int numUses = 1;
 
     protected Action onItemUseComplete;
     public abstract string GetItemName();
@@ -15,12 +16,12 @@ public abstract class BaseItem : MonoBehaviour
 
     public virtual int GetItemUses()
     {
-        return 1;
+        return numUses;
     }
 
-    public void DecreaseItemUses(int value)
+    public int DecreaseItemUses()
     {
-        value--;
+        return numUses--;
     }
 
     protected void ItemUseStart(Action onItemUseComplete)
@@ -43,5 +44,10 @@ public abstract class BaseItem : MonoBehaviour
     {
         if(GetItemUses() == 0) return true;
         return false;
+    }
+
+    public void SetItemUses(int value)
+    {
+        numUses = value;
     }
 }

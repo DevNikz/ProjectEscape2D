@@ -1,6 +1,5 @@
 using System;
 using UnityEngine;
-using UnityEngine.AI;
 
 public class InteractManager : MonoBehaviour
 {
@@ -12,7 +11,7 @@ public class InteractManager : MonoBehaviour
     
     public BaseItem tempSelectedItem;
 
-    private bool hasInteracted;
+    [SerializeField] private bool hasInteracted;
     private Camera mainCamera;
 
     void Awake()
@@ -35,14 +34,15 @@ public class InteractManager : MonoBehaviour
 
     void HandleInteraction()
     {
-        if(Input.GetMouseButtonDown(0))
+        if(InputManager.Instance.IsMouseButtonDownThisFrame())
         {
-            Vector2 mousePosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
+            //Debug.Log("Click.");
+            Vector2 mousePosition = mainCamera.ScreenToWorldPoint(InputManager.Instance.GetMouseScreenPosition());
             RaycastHit2D hit = Physics2D.Raycast(mousePosition, Vector2.zero);
 
             if(hit.collider != null)
             {
-                Debug.Log($"Clicked on: {hit.collider.gameObject.name}");
+                //Debug.Log($"Clicked on: {hit.collider.gameObject.name}");
                 //Do Something here
                 CheckObject(hit.collider.gameObject);
             }
@@ -93,7 +93,7 @@ public class InteractManager : MonoBehaviour
 
     private void SpendActionPoints(BaseItem baseItem)
     {
-        baseItem.DecreaseItemUses(baseItem.GetItemUses());
+        baseItem.DecreaseItemUses();
         OnAnyItemUsed?.Invoke(this, EventArgs.Empty);
     }
 
