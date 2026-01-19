@@ -27,6 +27,10 @@ public class MultiItem : BaseItem
     {
         ItemUseStart(onItemUseComplete);
     }
+    public override void TakeItem(Action onItemTakeComplete)
+    {
+        
+    }
 
     private void OnMultiItemComplete()
     {
