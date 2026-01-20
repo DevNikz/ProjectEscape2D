@@ -10,13 +10,15 @@ public class SingleItem : BaseItem
     public event EventHandler OnItemTakeStarted;
     public event EventHandler OnItemTakeCompleted;
 
-
     [SerializeField] public Item item;
-    [SerializeField] public int itemUses;
 
     void Update()
     {
-        itemUses = GetItemUses();
+        if(item != null)
+        {
+            item.uses = GetItemUses();
+        }
+
         if(!hasPickedUp) return;
         else
         {
@@ -41,37 +43,46 @@ public class SingleItem : BaseItem
 
     public override void TakeItem(Action onItemTakeComplete)
     {
+        //Event Invokers
         OnItemTakeStarted?.Invoke(this, EventArgs.Empty);
         ItemTakeStart(onItemTakeComplete);
+        item.isPickedUp = HasPickedUp();
     }
 
     public override void UseItem(Action onItemUseComplete)
     {
-        //Do something here (i.e. open door or something)
-        //Debug.Log($"{gameObject.name} has started.");
-
         OnItemUseStarted?.Invoke(this, EventArgs.Empty);
         ItemUseStart(onItemUseComplete);
     }
 
     private void OnSingleItemComplete()
     {
-        //Debug.Log($"{gameObject.name} has been used.");
         ItemUseComplete();
     }
 
     private void OnPickupItemComplete()
     {
         ItemTakeComplete();
-    }
-
-    public Item GetItem()
-    {
-        return item;
+        Destroy(gameObject);
     }
 
     public override int GetItemUses()
     {
-        return base.GetItemUses();
+        return base.numUses;
+    }
+
+    public override bool HasPickedUp()
+    {
+        return base.hasPickedUp;
+    }
+
+    public void SetItem(Item value)
+    {
+        item = value;
+    }
+
+    public override Item GetItem()
+    {
+        return item;
     }
 }

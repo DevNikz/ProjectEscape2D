@@ -4,13 +4,25 @@ using UnityEngine;
 //Make sure this object's tag is set to "MultiItem"
 public class MultiItem : BaseItem
 {
+    public event EventHandler OnItemUseStarted;
+    public event EventHandler OnItemUseCompleted;
+    public event EventHandler OnItemTakeStarted;
+    public event EventHandler OnItemTakeCompleted;
     [SerializeField] public Item item;
-    [SerializeField, Range(2f, 5f)] private int itemUses;
-    private int currentItemUses;
 
-    void Awake()
+    void Update()
     {
-        currentItemUses = itemUses;
+        if(item != null)
+        {
+            item.uses = GetItemUses();
+        }
+
+        if(!hasPickedUp) return;
+        else
+        {
+            OnItemTakeCompleted?.Invoke(this, EventArgs.Empty);
+            OnPickupItemComplete();
+        }
     }
 
     public override string GetItemName()
@@ -18,18 +30,18 @@ public class MultiItem : BaseItem
         return item.itemSO.name;
     }
 
-    public override int GetItemUses()
+    public override void TakeItem(Action onItemTakeComplete)
     {
-        return currentItemUses;
+        //Event Invokers
+        OnItemTakeStarted?.Invoke(this, EventArgs.Empty);
+        ItemTakeStart(onItemTakeComplete);
+        item.isPickedUp = HasPickedUp();
     }
 
     public override void UseItem(Action onItemUseComplete)
     {
+        OnItemUseStarted?.Invoke(this, EventArgs.Empty);
         ItemUseStart(onItemUseComplete);
-    }
-    public override void TakeItem(Action onItemTakeComplete)
-    {
-        
     }
 
     private void OnMultiItemComplete()
@@ -37,7 +49,27 @@ public class MultiItem : BaseItem
         ItemUseComplete();
     }
 
-    public Item GetItem()
+    private void OnPickupItemComplete()
+    {
+        ItemTakeComplete();
+        Destroy(gameObject);
+    }
+
+    public override int GetItemUses()
+    {
+        return base.numUses;
+    }
+
+    public override bool HasPickedUp()
+    {
+        return base.hasPickedUp;
+    }
+
+    public void SetItem(Item value)
+    {
+        item = value;
+    }
+    public override Item GetItem()
     {
         return item;
     }

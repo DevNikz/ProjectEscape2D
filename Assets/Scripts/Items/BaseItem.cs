@@ -18,10 +18,21 @@ public abstract class BaseItem : MonoBehaviour
     public abstract string GetItemName();
     public abstract void UseItem(Action onItemUseComplete);
     public abstract void TakeItem(Action onItemTakeComplete);
+    public abstract Item GetItem();
 
     public virtual int GetItemUses()
     {
         return numUses;
+    }
+
+    public int AddItemUses()
+    {
+        return numUses++;
+    }
+
+    public virtual bool HasPickedUp()
+    {
+        return hasPickedUp;
     }
 
     public int DecreaseItemUses()

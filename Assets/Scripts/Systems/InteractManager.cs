@@ -52,7 +52,8 @@ public class InteractManager : MonoBehaviour
         if(gameObject.CompareTag("SingleItem"))
         {
             tempSelectedItem = gameObject.GetComponent<SingleItem>();
-            if(!TrySpendItemUseToUseItem(tempSelectedItem)) return;
+            if(!InventoryManager.Instance.TryAddingSingleItem(tempSelectedItem.GetItem())) return;
+            //if(!TrySpendItemUseToUseItem(tempSelectedItem)) return;
 
             SetInteract();
             tempSelectedItem.TakeItem(ClearInteract);
@@ -65,7 +66,10 @@ public class InteractManager : MonoBehaviour
         if(gameObject.CompareTag("MultiItem"))
         {
             tempSelectedItem = gameObject.GetComponent<MultiItem>();
-            if(!TrySpendItemUseToUseItem(tempSelectedItem)) return;
+            if(!InventoryManager.Instance.TryAddingMultiItem(tempSelectedItem.GetItem()))
+            {
+                //Do Nothing?
+            }
 
             SetInteract();
             tempSelectedItem.TakeItem(ClearInteract);

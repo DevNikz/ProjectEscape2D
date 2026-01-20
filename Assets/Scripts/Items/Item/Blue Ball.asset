@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1c6d099a01b04dc468091ff7059bc200, type: 3}
-  m_Name: Red Ball
+  m_Name: Blue Ball
   m_EditorClassIdentifier: Assembly-CSharp::ItemSO
-  _itemName: Red Ball
-  _itemType: 1
+  _itemName: Blue Ball
+  _itemType: 2
   _itemSprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  _itemColor: {r: 1, g: 0, b: 0, a: 1}
+  _itemColor: {r: 0, g: 0.45599174, b: 1, a: 1}
