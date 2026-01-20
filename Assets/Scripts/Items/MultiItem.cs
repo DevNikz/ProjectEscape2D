@@ -38,16 +38,7 @@ public class MultiItem : BaseItem
         item.isPickedUp = HasPickedUp();
     }
 
-    public override void UseItem(Action onItemUseComplete)
-    {
-        OnItemUseStarted?.Invoke(this, EventArgs.Empty);
-        ItemUseStart(onItemUseComplete);
-    }
-
-    private void OnMultiItemComplete()
-    {
-        ItemUseComplete();
-    }
+    public override void UseItem(Action onItemUseComplete) {}
 
     private void OnPickupItemComplete()
     {

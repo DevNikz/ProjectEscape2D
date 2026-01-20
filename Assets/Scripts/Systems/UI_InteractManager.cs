@@ -1,82 +1,50 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
-public class InteractManager : MonoBehaviour
+public class UI_InteractManager : MonoBehaviour
 {
-    public static InteractManager Instance;
+    GraphicRaycaster graphicRaycaster;
+    PointerEventData pointerEventData;
+    EventSystem eventSystem;
 
     public event EventHandler<bool>  OnInteractChanged;
     public static event EventHandler OnAnyItemUsed;
     public event EventHandler OnItemUseStarted;
     public event EventHandler OnItemTakeStarted;
-    
     public BaseItem tempSelectedItem;
-
+    
     [SerializeField] private bool hasInteracted;
-    private Camera mainCamera;
+    [SerializeField] private GameObject pointerItemPrefab;
 
-    void Awake()
+    void Start()
     {
-        if(Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else Destroy(gameObject);
-
-        mainCamera = Camera.main;
+        graphicRaycaster = GetComponent<GraphicRaycaster>();
+        eventSystem = GetComponent<EventSystem>();
     }
 
     void Update()
     {
-        if(hasInteracted) return;
-        HandleInteraction();
-    }
-
-    void HandleInteraction()
-    {
         if(InputManager.Instance.IsMouseButtonDownThisFrame())
         {
-            Vector2 mousePosition = mainCamera.ScreenToWorldPoint(InputManager.Instance.GetMouseScreenPosition());
-            RaycastHit2D hit = Physics2D.Raycast(mousePosition, Vector2.zero);
+            pointerEventData = new PointerEventData(eventSystem);
+            pointerEventData.position = InputManager.Instance.GetMouseScreenPosition();
+            List<RaycastResult> results = new List<RaycastResult>();
+            graphicRaycaster.Raycast(pointerEventData, results);
 
-            if(hit.collider != null)
+            if(results.Count > 0) 
             {
-                CheckItem(hit.collider.gameObject);
+                //InstantiateItem(results[0].gameObject);
+                //CheckUI(results[0].gameObject);
             }
+            //Debug.Log($"UI count: {results.Count}");
         }
     }
 
-    void CheckItem(GameObject gameObject)
+    void CheckUI(GameObject gameObject)
     {
-        if(gameObject.CompareTag("SingleItem"))
-        {
-            tempSelectedItem = gameObject.GetComponent<SingleItem>();
-            if(!InventoryManager.Instance.TryAddingSingleItem(tempSelectedItem.GetItem())) return;
-            //if(!TrySpendItemUseToUseItem(tempSelectedItem)) return;
-
-            SetInteract();
-            tempSelectedItem.TakeItem(ClearInteract);
-            //tempSelectedItem.UseItem(ClearInteract);
-            
-            OnItemTakeStarted?.Invoke(this, EventArgs.Empty);
-            //OnItemUseStarted?.Invoke(this, EventArgs.Empty);
-        }
-
-        if(gameObject.CompareTag("MultiItem"))
-        {
-            tempSelectedItem = gameObject.GetComponent<MultiItem>();
-            if(!InventoryManager.Instance.TryAddingMultiItem(tempSelectedItem.GetItem()))
-            {
-                //Do Nothing?
-            }
-
-            SetInteract();
-            tempSelectedItem.TakeItem(ClearInteract);
-            OnItemTakeStarted?.Invoke(this, EventArgs.Empty);
-        }
-
-        /*
         if(gameObject.CompareTag("Inv_SingleItem"))
         {
             tempSelectedItem = gameObject.GetComponent<SingleItem_Inv>();
@@ -96,7 +64,6 @@ public class InteractManager : MonoBehaviour
             tempSelectedItem.UseItem(ClearInteract);
             OnItemUseStarted?.Invoke(this, EventArgs.Empty);
         }
-        */
     }
 
     public bool TrySpendItemUseToUseItem(BaseItem baseItem)

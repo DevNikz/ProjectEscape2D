@@ -4,3 +4,9 @@ public enum ItemType
     SingleUse,
     MultipleUse
 }
+
+public enum DropType
+{
+    Single,
+    Multiple
+}

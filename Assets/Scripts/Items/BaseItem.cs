@@ -67,7 +67,6 @@ public abstract class BaseItem : MonoBehaviour
     protected void ItemTakeComplete()
     {
         onItemTakeComplete();
-
         OnAnyItemUseCompleted?.Invoke(this, EventArgs.Empty);
     }
 

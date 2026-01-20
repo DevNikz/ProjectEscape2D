@@ -10,8 +10,15 @@ public class InventoryManager : MonoBehaviour
     [SerializeField] private List<GameObject> inventoryGameObjects;
 
     [Header("Reference")]
-    [SerializeField] private GameObject inventoryContentParent;
+    [SerializeField] private GameObject content;
+    [SerializeField] private List<GameObject> inventorySlots;
+    [SerializeField] private int slotsUsed;
     [SerializeField] private GameObject itemTemplatePrefab;
+
+    void OnMouseDown()
+    {
+        Debug.Log($"You clicked {name}");
+    }
 
     void Awake()
     {
@@ -22,6 +29,16 @@ public class InventoryManager : MonoBehaviour
         }
         else Destroy(gameObject);
     }
+
+    /*
+    void Start()
+    {
+        for(int i = 0; i < content.transform.childCount; i++)
+        {
+            inventorySlots.Add(content.transform.GetChild(i).gameObject);
+        }
+    }
+    */
 
     public bool TryAddingSingleItem(Item item)
     {
@@ -70,7 +87,7 @@ public class InventoryManager : MonoBehaviour
             if(inventoryGameObjects[i].name == item.itemSO.name) 
             {
                 Debug.Log("Incrementing Uses.");
-                inventoryGameObjects[i].GetComponent<MultiItem>().AddItemUses();
+                inventoryGameObjects[i].GetComponent<MultiItem_Inv>().AddItemUses();
                 return true;
             }
         }
@@ -79,13 +96,13 @@ public class InventoryManager : MonoBehaviour
 
     private void TryAddingItemToInventory(Item item)
     {
-        GameObject tempItem = Instantiate(itemTemplatePrefab, inventoryContentParent.transform);
+        GameObject tempItem = Instantiate(itemTemplatePrefab, content.transform);
         switch(item.itemSO._itemType)
         {
             case ItemType.SingleUse:
                 //Init SingleItem
-                tempItem.AddComponent<SingleItem>();
-                tempItem.GetComponent<SingleItem>().SetItem(item);
+                tempItem.AddComponent<SingleItem_Inv>();
+                tempItem.GetComponent<SingleItem_Inv>().SetItem(item);
 
                 //Edit Sprite
                 tempItem.GetComponent<Image>().sprite = item.itemSO._itemSprite;
@@ -99,8 +116,8 @@ public class InventoryManager : MonoBehaviour
 
             case ItemType.MultipleUse:
                 //Init SingleItem
-                tempItem.AddComponent<MultiItem>();
-                tempItem.GetComponent<MultiItem>().SetItem(item);
+                tempItem.AddComponent<MultiItem_Inv>();
+                tempItem.GetComponent<MultiItem_Inv>().SetItem(item);
 
                 //Edit Sprite
                 tempItem.GetComponent<Image>().sprite = item.itemSO._itemSprite;
@@ -112,6 +129,7 @@ public class InventoryManager : MonoBehaviour
                 break;
         }
         inventoryGameObjects.Add(tempItem);
+        //slotsUsed++;
     }
 
     public List<Item> GetInventory()
@@ -124,9 +142,23 @@ public class InventoryManager : MonoBehaviour
         inventoryItems.Add(item);
     }
 
-    public void RemoveItemAt(int index)
+    private void RemoveItemAt(int index)
     {
         inventoryItems.RemoveAt(index);
+    }
+
+    private void RemoveObjectAt(int index)
+    {
+        inventoryGameObjects.RemoveAt(index);
+    }
+
+    public void RemoveItem(string itemName)
+    {
+        int index = inventoryItems.FindIndex(i => i.itemSO.name == itemName);
+        RemoveItemAt(index);
+        
+        index = inventoryGameObjects.FindIndex(i => i.name == itemName);
+        RemoveObjectAt(index);
     }
 
     public void ClearInventory() 
