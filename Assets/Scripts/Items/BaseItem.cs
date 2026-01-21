@@ -10,7 +10,7 @@ public abstract class BaseItem : MonoBehaviour
 
     protected bool hasPickedUp;
     protected bool isUsed;
-    protected bool isLocked;
+    protected bool isDropped;
     protected int numUses = 1;
 
     protected Action onItemUseComplete;
@@ -19,6 +19,15 @@ public abstract class BaseItem : MonoBehaviour
     public abstract void UseItem(Action onItemUseComplete);
     public abstract void TakeItem(Action onItemTakeComplete);
     public abstract Item GetItem();
+
+    public virtual void SetDropped(bool value)
+    {
+        isDropped = value;
+    }
+    public virtual bool HasDropped()
+    {
+        return isDropped;
+    }
 
     public virtual int GetItemUses()
     {

@@ -103,6 +103,7 @@ public class InventoryManager : MonoBehaviour
                 //Init SingleItem
                 tempItem.AddComponent<SingleItem_Inv>();
                 tempItem.GetComponent<SingleItem_Inv>().SetItem(item);
+                tempItem.GetComponent<SingleItem_Inv>().SetParent(content.transform);
 
                 //Edit Sprite
                 tempItem.GetComponent<Image>().sprite = item.itemSO._itemSprite;
@@ -118,6 +119,7 @@ public class InventoryManager : MonoBehaviour
                 //Init SingleItem
                 tempItem.AddComponent<MultiItem_Inv>();
                 tempItem.GetComponent<MultiItem_Inv>().SetItem(item);
+                tempItem.GetComponent<MultiItem_Inv>().SetParent(content.transform);
 
                 //Edit Sprite
                 tempItem.GetComponent<Image>().sprite = item.itemSO._itemSprite;

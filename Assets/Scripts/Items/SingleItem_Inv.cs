@@ -8,14 +8,23 @@ public class SingleItem_Inv : BaseItem, IBeginDragHandler, IDragHandler, IEndDra
     public event EventHandler OnItemUseStarted;
     public event EventHandler OnItemUseCompleted;
     [SerializeField] public Item item;
-    public bool isDragging;
-
     public Transform parentAfterDrag;
+    public GameObject tempItem;
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        Debug.Log("Begin Drag");
-        parentAfterDrag = transform.parent;
+        //Debug.Log("Begin Drag");
+        if(parentAfterDrag != transform.parent) parentAfterDrag = transform.parent;
+
+        //Instantiate
+        tempItem = Instantiate(this.gameObject, parentAfterDrag);
+        tempItem.gameObject.transform.SetSiblingIndex(gameObject.transform.GetSiblingIndex());
+
+        Color c = tempItem.GetComponent<Image>().color;
+        c.a = 0.5f;
+        tempItem.GetComponent<Image>().color = c;
+
+        //After Inst
         transform.SetParent(transform.root);
         transform.SetAsLastSibling();
         Vector2 objectPos = Camera.main.ScreenToWorldPoint(InputManager.Instance.GetMouseScreenPosition());
@@ -25,15 +34,17 @@ public class SingleItem_Inv : BaseItem, IBeginDragHandler, IDragHandler, IEndDra
 
     public void OnDrag(PointerEventData eventData)
     {
-        Debug.Log($"Dragging {name}");
         transform.position = Input.mousePosition;
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        Debug.Log("End Drag");
+        Destroy(tempItem.gameObject);
         transform.SetParent(parentAfterDrag);
         GetComponent<Image>().raycastTarget = true;
+
+        //If key has been used at the correct puzzle, Destroy gameobject
+        if(HasDropped()) Destroy(gameObject);
     }
 
     void Update()
@@ -90,13 +101,8 @@ public class SingleItem_Inv : BaseItem, IBeginDragHandler, IDragHandler, IEndDra
         return item;
     }
 
-    public bool GetDrag()
+    public void SetParent(Transform _transform)
     {
-        return isDragging;
-    }
-
-    public void SetDrag(bool value)
-    {
-        isDragging = value;
+        parentAfterDrag = _transform;
     }
 }

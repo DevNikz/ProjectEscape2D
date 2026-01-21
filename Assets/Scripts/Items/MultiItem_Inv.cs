@@ -1,13 +1,48 @@
 using System;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.EventSystems;
+using Unity.Mathematics;
 
-public class MultiItem_Inv : BaseItem
+public class MultiItem_Inv : BaseItem, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     public event EventHandler OnItemUseStarted;
     public event EventHandler OnItemUseCompleted;
-    public event EventHandler OnItemTakeStarted;
-    public event EventHandler OnItemTakeCompleted;
     [SerializeField] public Item item;
+    public Transform parentAfterDrag;
+    public GameObject tempItem;
+
+    public void OnBeginDrag(PointerEventData eventData)
+    {
+        if(parentAfterDrag != transform.parent) parentAfterDrag = transform.parent;
+
+        //Instantiate
+        tempItem = Instantiate(this.gameObject, parentAfterDrag);
+        tempItem.gameObject.transform.SetSiblingIndex(gameObject.transform.GetSiblingIndex());
+
+        Color c = tempItem.GetComponent<Image>().color;
+        c.a = 0.5f;
+        tempItem.GetComponent<Image>().color = c;
+
+        //After Instantiate
+        transform.SetParent(transform.root);
+        transform.SetAsLastSibling();
+        Vector2 objectPos = Camera.main.ScreenToWorldPoint(InputManager.Instance.GetMouseScreenPosition());
+        transform.position = new Vector3(objectPos.x, objectPos.y, 0);
+        GetComponent<Image>().raycastTarget = false;
+    }
+
+    public void OnDrag(PointerEventData eventData)
+    {
+        transform.position = Input.mousePosition;
+    }
+
+    public void OnEndDrag(PointerEventData eventData)
+    {
+        Destroy(tempItem.gameObject);
+        transform.SetParent(parentAfterDrag);
+        GetComponent<Image>().raycastTarget = true;
+    }
 
     void Update()
     {
@@ -19,7 +54,7 @@ public class MultiItem_Inv : BaseItem
         if(!isUsed) return;
         else
         {
-            OnItemTakeCompleted?.Invoke(this, EventArgs.Empty);
+            OnItemUseCompleted?.Invoke(this, EventArgs.Empty);
             OnMultiItemUseComplete();
         }
     }
@@ -63,5 +98,10 @@ public class MultiItem_Inv : BaseItem
     public override Item GetItem()
     {
         return item;
+    }
+
+    public void SetParent(Transform _transform)
+    {
+        parentAfterDrag = _transform;
     }
 }
