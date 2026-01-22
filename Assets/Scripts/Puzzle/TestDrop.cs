@@ -13,6 +13,7 @@ public class TestDrop : BasePuzzleDrop
         if(eventData.pointerDrag != null)
         {
             GameObject puzzleItem = eventData.pointerDrag;
+            
             switch(dropType)
             {
                 case DropType.Single:
@@ -20,48 +21,62 @@ public class TestDrop : BasePuzzleDrop
                 if(puzzleItem.GetComponent<SingleItem_Inv>() != null && 
                 puzzleItem.GetComponent<SingleItem_Inv>().item.itemSO == requiredKey.itemSO)
                 {
-                    puzzleItem.GetComponent<SingleItem_Inv>().SetDropped(true);
-
                     sItem = puzzleItem.GetComponent<SingleItem_Inv>();
+                    if(!TrySpendItemUseToUseItem(sItem)) return;
+
+                    sItem.SetDropped(true);
+                    sItem.UseItem(NothingHere);
                     sItem.parentAfterDrag = transform;
 
                     //Change Drop Visuals?
-                    image.color = Color.darkRed;
+                    image.color = Color.softRed;
+                }
+
+                break;
+
+                case DropType.Multiple:
+                
+                if(puzzleItem.GetComponent<MultiItem_Inv>() != null && 
+                puzzleItem.GetComponent<MultiItem_Inv>().item.itemSO == requiredKey.itemSO)
+                {
+                    mItem = puzzleItem.GetComponent<MultiItem_Inv>();
+                    if(!TrySpendItemUseToUseItem(mItem)) return;
+
+                    mItem.SetDropped(true);
+                    mItem.UseItem(NothingHere);
+                    //mItem.parentAfterDrag = transform;
+
+                    image.color = Color.softBlue;
                 }
 
                 break;
             }
         }
     }
+
+    public bool TrySpendItemUseToUseItem(BaseItem baseItem)
+    {
+        if(CanSpendItemUseToUseItem(baseItem))
+        {
+            SpendActionPoints(baseItem);
+            return true;
+        }
+        else return false;
+    }
+
+    public bool CanSpendItemUseToUseItem(BaseItem baseItem)
+    {
+        if (baseItem.GetItemUses() > 0) return true;
+        else return false;
+    }
+
+    private void SpendActionPoints(BaseItem baseItem)
+    {
+        baseItem.DecreaseItemUses();
+    }
+
+    void NothingHere()
+    {
+        //Default
+    }
 }
-
-// public class TestDrop : MonoBehaviour, IDropHandler
-// {
-//     public DropType type;
-//     public void OnDrop(PointerEventData eventData)
-//     {
-//         /*
-//         if(eventData.pointerDrag != null)
-//         {
-//             Debug.Log("Object was dropped: " + eventData.pointerDrag.name);
-
-//         }
-//         */
-        
-//         GameObject dropped = eventData.pointerDrag;
-//         switch(type)
-//         {
-//             case DropType.Single:
-//             SingleItem_Inv item1;
-//             if(dropped.GetComponent<SingleItem_Inv>() != null) 
-//             {
-//                 Debug.Log("Exists!");
-//                 item1 = dropped.GetComponent<SingleItem_Inv>();
-//                 item1.parentAfterDrag = transform;
-//             }
-            
-//             break;
-//         }
-        
-//     }
-// }

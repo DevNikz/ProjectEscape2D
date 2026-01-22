@@ -43,6 +43,7 @@ public class UI_InteractManager : MonoBehaviour
         }
     }
 
+
     void CheckUI(GameObject gameObject)
     {
         if(gameObject.CompareTag("Inv_SingleItem"))

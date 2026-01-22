@@ -42,9 +42,6 @@ public class SingleItem_Inv : BaseItem, IBeginDragHandler, IDragHandler, IEndDra
         Destroy(tempItem.gameObject);
         transform.SetParent(parentAfterDrag);
         GetComponent<Image>().raycastTarget = true;
-
-        //If key has been used at the correct puzzle, Destroy gameobject
-        if(HasDropped()) Destroy(gameObject);
     }
 
     void Update()

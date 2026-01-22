@@ -9,5 +9,6 @@ public abstract class BasePuzzleDrop : MonoBehaviour, IDropHandler
     [SerializeField] protected Item requiredKey;
     protected Image image;
     protected SingleItem_Inv sItem;
+    protected MultiItem_Inv mItem;
     public abstract void OnDrop(PointerEventData eventData);
 }
