@@ -8,6 +8,7 @@ TagManager:
   - MultiItem
   - Inv_SingleItem
   - Inv_MultiItem
+  - Pickup
   layers:
   - Default
   - TransparentFX
@@ -15,7 +16,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Pickup
   - 
   - 
   - 

@@ -13,7 +13,7 @@ public class InputManager : MonoBehaviour
         if(Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
+            //DontDestroyOnLoad(gameObject);
         }
         else Destroy(gameObject);
 
@@ -36,6 +36,15 @@ public class InputManager : MonoBehaviour
             return playerInputActions.UI.Click.WasPressedThisFrame();
     #else
             return Input.GetMouseButtonDown(0);
+    #endif
+    }
+
+    public bool IsMouseButtonUpThisFrame()
+    {
+    #if USE_NEW_INPUT_SYSTEM
+        return playerInputActions.UI.Click.WasReleasedThisFrame();
+    #else
+        return Input.GetMouseButtonUp(0);
     #endif
     }
 }

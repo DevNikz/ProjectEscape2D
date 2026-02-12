@@ -25,9 +25,15 @@ public class InventoryManager : MonoBehaviour
         if(Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
+            //DontDestroyOnLoad(gameObject);
         }
         else Destroy(gameObject);
+    }
+
+    
+    void Start()
+    {
+        content = GameObject.Find("MainUI").transform.Find("Inventory").transform.Find("Content").gameObject;
     }
 
     /*
