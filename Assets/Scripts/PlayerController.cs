@@ -26,7 +26,7 @@ public class PlayerController : MonoBehaviour
     void Awake()
     {
         if(Instance == null) Instance = this;
-        ChangeToDefaultCursor();
+        //ChangeToDefaultCursor();
     }
 
     void SwitchCursor(int index)
@@ -78,7 +78,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            ChangeToDefaultCursor();
+            //ChangeToDefaultCursor();
         }
     }
 

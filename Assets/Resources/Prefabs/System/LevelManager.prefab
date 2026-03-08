@@ -44,3 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09b08f0edc4aefe4eb0de2f210028dcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelManager
+  targetList:
+  - {fileID: 0}
+  - {fileID: 0}
+  currentTarget: {fileID: 0}

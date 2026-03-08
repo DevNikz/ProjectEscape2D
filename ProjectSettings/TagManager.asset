@@ -9,6 +9,8 @@ TagManager:
   - Inv_SingleItem
   - Inv_MultiItem
   - Pickup
+  - CameraController
+  - Bounds
   layers:
   - Default
   - TransparentFX

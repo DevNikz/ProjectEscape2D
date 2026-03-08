@@ -7,13 +7,16 @@ public class InputManager : MonoBehaviour
 {
     public static InputManager Instance;
     private PlayerInputActions playerInputActions;
+    [SerializeField] bool allowInputRead;
+    public bool IsInputAllowed() { return allowInputRead; }
+    public void SetInputAllowed(bool value) { allowInputRead = value; }
 
     void Awake()
     {
         if(Instance == null)
         {
             Instance = this;
-            //DontDestroyOnLoad(gameObject);
+            DontDestroyOnLoad(gameObject);
         }
         else Destroy(gameObject);
 
@@ -32,19 +35,25 @@ public class InputManager : MonoBehaviour
 
     public bool IsMouseButtonDownThisFrame()
     {
+        if(allowInputRead) {
     #if USE_NEW_INPUT_SYSTEM
             return playerInputActions.UI.Click.WasPressedThisFrame();
     #else
             return Input.GetMouseButtonDown(0);
     #endif
+        }
+        else return false;
     }
 
     public bool IsMouseButtonUpThisFrame()
     {
+        if(allowInputRead) {
     #if USE_NEW_INPUT_SYSTEM
         return playerInputActions.UI.Click.WasReleasedThisFrame();
     #else
         return Input.GetMouseButtonUp(0);
     #endif
+        }
+        else return false;
     }
 }
