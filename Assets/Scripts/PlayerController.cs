@@ -25,8 +25,12 @@ public class PlayerController : MonoBehaviour
 
     void Awake()
     {
-        if(Instance == null) Instance = this;
-        //ChangeToDefaultCursor();
+        if(Instance == null) {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else Destroy(gameObject);
+        ChangeToDefaultCursor();
     }
 
     void SwitchCursor(int index)
@@ -78,7 +82,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            //ChangeToDefaultCursor();
+            ChangeToDefaultCursor();
         }
     }
 
@@ -121,13 +125,13 @@ public class PlayerController : MonoBehaviour
             Vector2 throwForce = mouseVelocity * throwMultiplier;
             throwForce = Vector2.ClampMagnitude(throwForce, maxThrowForce);
             grabbedBody.linearVelocity = throwForce;
-        }
-        
-        if(currentJoint != null) {
-            Destroy(currentJoint); 
-        }
+            grabbedBody = null;
 
-        grabbedBody = null;
+            if(currentJoint != null) 
+            {
+                Destroy(currentJoint); 
+            }
+        }
     }
 }
 

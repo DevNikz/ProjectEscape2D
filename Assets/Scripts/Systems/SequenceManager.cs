@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VectorGraphics;
 using UnityEngine;
 
 public enum CurrentScene
 {
     TITLE,
     NEXT_TITLE,
+    LOADING1,
+    ROOM1
 }
 
 public class SequenceManager : MonoBehaviour
@@ -13,6 +16,7 @@ public class SequenceManager : MonoBehaviour
     public static SequenceManager Instance;
     [SerializeField] TitleAnimater titleAnimater;
     [SerializeField] NextTitleAnimater nextTitleAnimater; 
+    [SerializeField] LoadingScene loadingScene;
     [SerializeField] CurrentScene currentScene;
 
     [Header("Scenes")]
@@ -31,7 +35,10 @@ public class SequenceManager : MonoBehaviour
         else Destroy(gameObject);
 
         scenes[0].SetActive(true);
-        scenes[1].SetActive(false);
+        for(int i = 1; i < scenes.Count; i++)
+        {
+            scenes[i].SetActive(false);
+        }
     }
 
     void Start()
@@ -56,7 +63,19 @@ public class SequenceManager : MonoBehaviour
     public void NextScene(CurrentScene scene)
     {
         SetCurrentScene(scene);
-        StartCoroutine(To_NEXT_TITLE());
+        switch(scene)
+        {
+            case CurrentScene.NEXT_TITLE:
+                StartCoroutine(To_NEXT_TITLE());
+                break;
+            case CurrentScene.LOADING1:
+                StartCoroutine(TO_LOADING1());
+                break;
+            case CurrentScene.ROOM1:
+                StartCoroutine(TO_ROOM1());
+                break;
+
+        }
     }
 
     IEnumerator To_NEXT_TITLE()
@@ -87,5 +106,42 @@ public class SequenceManager : MonoBehaviour
         yield return new WaitForSeconds(0.25f);
         nextTitleAnimater.EnableButton();
         yield return null; 
+    }
+
+    IEnumerator TO_LOADING1()
+    {
+        BlackScreenManager.Instance.FadeIn();
+        yield return new WaitForSeconds(1f);
+
+        scenes[1].SetActive(false);
+        scenes[2].SetActive(true);
+
+        yield return new WaitForSeconds(1f);
+        BlackScreenManager.Instance.FadeOut();
+
+        StartCoroutine(LOADING1());
+    }
+
+    IEnumerator LOADING1()
+    {
+        yield return new WaitForSeconds(1f);
+
+        loadingScene.PlayTextAnim();
+        loadingScene.PlayLoadingBar();
+        loadingScene.ShowHintBar();
+    }
+
+    IEnumerator TO_ROOM1()
+    {
+        BlackScreenManager.Instance.FadeIn();
+        yield return new WaitForSeconds(1f);
+
+        scenes[2].SetActive(false);
+        //scenes[3].SetActive(true);
+
+        yield return new WaitForSeconds(1f);
+        BlackScreenManager.Instance.FadeOut();
+
+        //StartCoroutine(LOADING1());
     }
 }

@@ -22,6 +22,8 @@ public class InputManager : MonoBehaviour
 
         playerInputActions = new PlayerInputActions();
         playerInputActions.UI.Enable();
+
+        SetInputAllowed(true);
     }
 
     public Vector2 GetMouseScreenPosition()

@@ -51,4 +51,9 @@ public class NextTitleAnimater : MonoBehaviour
     {
         bgButton.enabled = true;
     }
+
+    public void NextScene()
+    {
+        SequenceManager.Instance.NextScene(CurrentScene.LOADING1);
+    }
 }
