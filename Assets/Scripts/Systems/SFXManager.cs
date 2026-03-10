@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Unity.Collections;
 using UnityEngine;
 using UnityEngine.Audio;
@@ -11,7 +12,8 @@ public class SFXManager : MonoBehaviour
 
     [SerializeField] private AudioSource sfxSource;
     [SerializeField] private AudioSource musicSource;
-    [SerializeField] private AudioSource uiSource;
+    [SerializeField] private AudioSource voiceSource;
+    [SerializeField] private List<AudioSource> customMusicList;
     [SerializeField] private AudioMixer masterMixer;
 
     [Range(0.1f, 10f)][SerializeField] public float fadeThreshold = 0.1f;
@@ -31,19 +33,17 @@ public class SFXManager : MonoBehaviour
     {
         sfxSource = GetComponentsInChildren<AudioSource>()[0]; //first in hierarchy
         musicSource = GetComponentsInChildren<AudioSource>()[1];
-        uiSource = GetComponentsInChildren<AudioSource>()[2];
-
-        SceneManager.sceneLoaded += OnSceneLoaded;
+        voiceSource = GetComponentsInChildren<AudioSource>()[2];
         //SwitchAudio();
-    }
 
-    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        switch (SceneManager.GetActiveScene().buildIndex)
+        switch(SequenceManager.Instance.GetCurrentScene())
         {
-            case 0: //Main Menu
-                StopMusic();
-                //PlayMusic("ClockworkRondo"); //TitleMusic
+            case CurrentScene.ROOM1:
+                customMusicList[0].Play();
+                customMusicList[1].Play();
+                //customMusicList[2].Play();
+                // PlayMusic("RoomAmbience1");
+                // PlayMusic("ClockTick");
                 break;
         }
     }
@@ -54,8 +54,8 @@ public class SFXManager : MonoBehaviour
         if (s == null || s.clip == null || musicSource == null) return;
 
         musicSource.clip = s.clip;
+        musicSource.loop = s.loop;
         musicSource.Play();
-        musicSource.loop = true;
     }
 
     public void StopMusic() //Call this first before play music
@@ -68,17 +68,6 @@ public class SFXManager : MonoBehaviour
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);
         if (s == null || s.clip == null || sfxSource == null) return;    
-        
-        // if(name == "Alerted")
-        // {
-        //     if (!hasPlayedAlert)
-        //     {
-        //         sfxSource.PlayOneShot(s.clip, s.volume);
-        //         hasPlayedAlert = true;
-        //     }
-        //     else return;
-        // }
-        //else sfxSource.PlayOneShot(s.clip, s.volume);
 
         sfxSource.PlayOneShot(s.clip, s.volume);
     }
@@ -106,11 +95,11 @@ public class SFXManager : MonoBehaviour
         Destroy(tempGO, s.clip.length / tempSource.pitch);
     }
 
-    public void PlayUI(string name)
+    public void PlayVoice(string name)
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);
-        if (s == null || s.clip == null || uiSource == null) return;  
+        if (s == null || s.clip == null || voiceSource == null) return;  
 
-        uiSource.PlayOneShot(s.clip, s.volume);  
+        voiceSource.PlayOneShot(s.clip, s.volume);  
     }
 }

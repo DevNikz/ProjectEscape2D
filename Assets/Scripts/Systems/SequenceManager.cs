@@ -18,12 +18,27 @@ public class SequenceManager : MonoBehaviour
     [SerializeField] NextTitleAnimater nextTitleAnimater; 
     [SerializeField] LoadingScene loadingScene;
     [SerializeField] CurrentScene currentScene;
+    [SerializeField] GameObject CinemachineObject;
+
+    [Header("Filters")]
+    [SerializeField] List<GameObject> filters;
 
     [Header("Scenes")]
     [SerializeField] List<GameObject> scenes;
+    [SerializeField] bool isCanvasOpen;
+    [SerializeField] bool isCinemachineEnabled;
+    public bool IsCanvasOpen() { return isCanvasOpen; }
+    public void SetCanvasOpen(bool value) { isCanvasOpen = value; } 
 
     public CurrentScene GetCurrentScene() { return currentScene; }
     public void SetCurrentScene(CurrentScene scene) { currentScene = scene; }
+
+    public void SetActiveFilter(int index)
+    {
+        for(int i = 0; i < filters.Count; i++) filters[i].SetActive(false);
+
+        filters[index].SetActive(true);
+    }
 
     void Awake()
     {
@@ -34,6 +49,16 @@ public class SequenceManager : MonoBehaviour
         }
         else Destroy(gameObject);
 
+        
+    }
+
+    void Update()
+    {
+        if(isCinemachineEnabled) CinemachineObject.SetActive(true);
+    }
+
+    void FirstSetup()
+    {
         scenes[0].SetActive(true);
         for(int i = 1; i < scenes.Count; i++)
         {
