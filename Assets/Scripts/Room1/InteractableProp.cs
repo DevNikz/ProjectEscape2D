@@ -8,9 +8,12 @@ public class InteractableProp : InteractInterface
     [SerializeField] GameObject menuButton;
     [SerializeField] GameObject targetUI;
     [SerializeField] GameObject targetObj;
+    [SerializeField] GameObject secondaryTarget;
     [SerializeField] bool invisHighlight;
     [SerializeField] bool IsTargetAnObj;
     [SerializeField] bool hasNoRenderer;
+    [SerializeField] bool hasSecondaryTarget;
+    [SerializeField] bool secondaryTargetState;
     GameObject highlight;
     bool disableComponent;
 
@@ -25,7 +28,7 @@ public class InteractableProp : InteractInterface
 
     void Update()
     {
-        if(SequenceManager.Instance.IsCanvasOpen()) disableComponent = true;
+        if(SequenceManager.Instance.IsCanvasOpen() || SequenceManager.Instance.IsZooming()) disableComponent = true;
         else disableComponent = false;
     }
 
@@ -33,6 +36,7 @@ public class InteractableProp : InteractInterface
     {
         if(!disableComponent)
         {
+            PlayerController.Instance.SetOnHover(true);
             if(!hasNoRenderer) GetComponent<SpriteRenderer>().enabled = false;
             if(!invisHighlight) highlight.SetActive(true);
         }
@@ -40,6 +44,7 @@ public class InteractableProp : InteractInterface
 
     void OnMouseExit()
     {
+        PlayerController.Instance.SetOnHover(false);
         if(!hasNoRenderer) GetComponent<SpriteRenderer>().enabled = true;
         if(!invisHighlight) highlight.SetActive(false);
     }
@@ -56,6 +61,7 @@ public class InteractableProp : InteractInterface
     public override void InteractObject()
     {
         if(!IsTargetAnObj) {
+            SFXManager.Instance.PlaySFX("Open");
             uiCanvas.SetActive(true);
             targetUI.SetActive(true);
             menuButton.SetActive(false);
@@ -63,8 +69,10 @@ public class InteractableProp : InteractInterface
             SequenceManager.Instance.SetCanvasOpen(true);
         }
         else {
+            SFXManager.Instance.PlaySFX("Select");
             targetObj.SetActive(true);
             gameObject.SetActive(false);
+            if(hasSecondaryTarget) secondaryTarget.SetActive(secondaryTargetState);
         }
     }
 }

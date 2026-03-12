@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using PrimeTween;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -18,6 +17,10 @@ public class LoadingScene : MonoBehaviour
     [SerializeField] float seconds;
     [SerializeField] TweenSettings<float> alpha;
     int currentIndex = 0;
+    bool hasPoweredDown;
+
+    public void SetPowerDown(bool value) { hasPoweredDown = value; }
+    public bool HasPoweredDown() { return hasPoweredDown; } 
 
     public void PlayTextAnim()
     {
@@ -39,6 +42,26 @@ public class LoadingScene : MonoBehaviour
         StartCoroutine(PlayLoadingBarCoroutine());
     }
 
+    public void PlayLoading2()
+    {
+        StartCoroutine(PlayLoading2Coroutine());
+    }
+
+    IEnumerator PlayLoading2Coroutine()
+    {
+        yield return null;
+
+        while(loadingBar.value < 100)
+        {
+            yield return new WaitForSeconds(seconds);
+            percent = loadingBar.value;
+            loadingBar.value += loadingSpeed;
+        }
+
+        yield return new WaitForSeconds(1f);
+        SequenceManager.Instance.NextScene(CurrentScene.INTERMISSION);
+    }
+
     IEnumerator PlayLoadingBarCoroutine()
     {
         yield return null;
@@ -49,6 +72,13 @@ public class LoadingScene : MonoBehaviour
             percent = loadingBar.value;
             loadingBar.value += loadingSpeed;
         }
+
+        SetPowerDown(true);
+        SFXManager.Instance.PauseMusic();
+        SFXManager.Instance.PlaySFX("PowerDown");
+        yield return new WaitForSeconds(1f);
+        SFXManager.Instance.PlayCustomMusic(2);
+
         PauseTextAnim();
     }
 
@@ -61,7 +91,15 @@ public class LoadingScene : MonoBehaviour
     {
         yield return null;
 
-        while(loadingBar.value <= 100)
+        SFXManager.Instance.StopCustomMusic();
+        yield return new WaitForSeconds(0.5f);
+        SFXManager.Instance.PlaySFX("PowerOn");
+        yield return new WaitForSeconds(0.5f);
+        SFXManager.Instance.ResumeMusic();
+
+        ResumeTextAnim();
+        
+        while(loadingBar.value < 100)
         {
             yield return new WaitForSeconds(seconds / 2);
             percent = loadingBar.value;
@@ -69,7 +107,7 @@ public class LoadingScene : MonoBehaviour
         }
 
         yield return new WaitForSeconds(1f);
-        
+        SFXManager.Instance.StopSFX();
         SequenceManager.Instance.NextScene(CurrentScene.ROOM1);
     }
 

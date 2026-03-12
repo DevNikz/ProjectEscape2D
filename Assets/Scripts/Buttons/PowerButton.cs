@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class PowerButton : MonoBehaviour
 {
@@ -6,14 +7,45 @@ public class PowerButton : MonoBehaviour
     [SerializeField] LightCollider redCollider;
     [SerializeField] LoadingScene loadingScene;
 
+    bool hasBeenInteracted;
+
+    void OnMouseOver()
+    {
+        PlayerController.Instance.SetOnHover(true);
+    }
+
+    void OnMouseExit()
+    {
+        PlayerController.Instance.SetOnHover(false);
+    }
+
     void OnMouseDown()
     {
-        if(redCollider.GetDetect())
+        if(redCollider.GetDetect() && loadingScene.HasPoweredDown())
+        {
+            SFXManager.Instance.PlaySFX("Select");
+            loadingScene.ResumeLoadingBar();
+            loadingScene.SetPowerDown(false);
+            hasBeenInteracted = true;
+            // red.SetActive(false);
+            // green.SetActive(true);
+            // loadingScene.ResumeTextAnim();
+        }
+    }
+
+    void Update()
+    {
+        if(loadingScene.HasPoweredDown())
+        {
+            red.SetActive(true);
+            green.SetActive(false);
+        }
+        else
         {
             red.SetActive(false);
             green.SetActive(true);
-            loadingScene.ResumeTextAnim();
-            loadingScene.ResumeLoadingBar();
+            if(hasBeenInteracted) green.GetComponent<Light2D>().intensity = 1;
+            else green.GetComponent<Light2D>().intensity = 0.25f;
         }
     }
 }

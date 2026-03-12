@@ -35,27 +35,57 @@ public class SFXManager : MonoBehaviour
         musicSource = GetComponentsInChildren<AudioSource>()[1];
         voiceSource = GetComponentsInChildren<AudioSource>()[2];
         //SwitchAudio();
+    }
 
+    public void CheckSceneForAmbience()
+    {
+        StopCustomMusic();
+        
         switch(SequenceManager.Instance.GetCurrentScene())
         {
             case CurrentScene.ROOM1:
                 customMusicList[0].Play();
                 customMusicList[1].Play();
-                //customMusicList[2].Play();
-                // PlayMusic("RoomAmbience1");
-                // PlayMusic("ClockTick");
                 break;
         }
     }
 
+    public void StopCustomMusic()
+    {
+        for(int i = 0; i < customMusicList.Count; i++)
+        {
+            customMusicList[i].Stop();
+        }
+    }
+
+    public void PlayCustomMusic(int index)
+    {
+        
+        customMusicList[index].Play();
+    }
+
     public void PlayMusic(string name)
     {
+        StopMusic();
         Sound s = Array.Find(sounds, sound => sound.name == name);
         if (s == null || s.clip == null || musicSource == null) return;
 
         musicSource.clip = s.clip;
         musicSource.loop = s.loop;
+        musicSource.volume = s.volume;
         musicSource.Play();
+    }
+
+    public void PauseMusic()
+    {
+        if (musicSource != null && musicSource.isPlaying)
+            musicSource.Pause();
+    }
+
+    public void ResumeMusic()
+    {
+        if (musicSource != null)
+            musicSource.UnPause();
     }
 
     public void StopMusic() //Call this first before play music
@@ -70,6 +100,11 @@ public class SFXManager : MonoBehaviour
         if (s == null || s.clip == null || sfxSource == null) return;    
 
         sfxSource.PlayOneShot(s.clip, s.volume);
+    }
+
+    public void StopSFX()
+    {
+        if(sfxSource != null && sfxSource.isPlaying) sfxSource.Stop();
     }
 
     public void PlaySFXAtPosition(string name, Vector3 position)
@@ -100,6 +135,26 @@ public class SFXManager : MonoBehaviour
         Sound s = Array.Find(sounds, sound => sound.name == name);
         if (s == null || s.clip == null || voiceSource == null) return;  
 
-        voiceSource.PlayOneShot(s.clip, s.volume);  
+        //voiceSource.PlayOneShot(s.clip, s.volume);
+        voiceSource.clip = s.clip;
+        voiceSource.loop = s.loop;
+        voiceSource.volume = s.volume;  
+        voiceSource.Play();
     }
+
+    public void StopVoice()
+    {
+        if(voiceSource != null && voiceSource.isPlaying) voiceSource.Stop();
+    }
+
+    public void PauseVoice()
+    {
+        if(voiceSource != null && voiceSource.isPlaying) voiceSource.Pause();
+    }
+
+    public void ResumeVoice()
+    {
+        if(voiceSource != null && !voiceSource.isPlaying) voiceSource.UnPause();
+    }
+
 }

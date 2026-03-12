@@ -20,6 +20,7 @@ public class BlackScreenManager : MonoBehaviour
     }
     public void FadeIn()
     {
+        SFXManager.Instance.PlaySFX("Transition");
         Tween.LocalPositionX(fade, fadeIn);
     }
 

@@ -47,6 +47,30 @@ public class InputManager : MonoBehaviour
         else return false;
     }
 
+    public bool IsRightClickDown()
+    {
+        if(allowInputRead) {
+    #if USE_NEW_INPUT_SYSTEM
+            return playerInputActions.UI.RightClick.WasPressedThisFrame();
+    #else
+            return Input.GetMouseButtonDown(1);
+    #endif
+        }
+        else return false;
+    }
+
+    public bool IsRightClickUp()
+    {
+        if(allowInputRead) {
+    #if USE_NEW_INPUT_SYSTEM
+        return playerInputActions.UI.RightClick.WasReleasedThisFrame();
+    #else
+        return Input.GetMouseButtonUp(1);
+    #endif
+        }
+        else return false;
+    }
+
     public bool IsMouseButtonUpThisFrame()
     {
         if(allowInputRead) {

@@ -20,8 +20,14 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private List<Texture2D> cursorSprites;
     [SerializeField] private bool isFocused;
     [SerializeField] private bool hasGrabbed;
+    [SerializeField] private bool onHoverObject;
+    public bool OnHover() { return onHoverObject; }
+    public void SetOnHover(bool value) { onHoverObject = value; }
     public bool IsFocused() { return isFocused; }
     public bool HasGrabbed() { return hasGrabbed; }
+
+    Vector2 mousePos;
+    public Vector2 GetMousePos() { return mousePos; }
 
     void Awake()
     {
@@ -57,8 +63,14 @@ public class PlayerController : MonoBehaviour
 
     void UpdateMouse()
     {
-        Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        if(!OnHover()) {
+            if(InputManager.Instance.IsMouseButtonDownThisFrame()) SFXManager.Instance.PlaySFX("Click");
+        }
+
+
+        mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         transform.position = mousePos;
+        //target.position = mousePos;
 
         // Track mouse velocity
         mouseVelocity = (mousePos - lastMousePos) / Time.deltaTime;
@@ -92,6 +104,8 @@ public class PlayerController : MonoBehaviour
 
         if (hit != null && hit.attachedRigidbody != null)
         {
+            //SFXManager.Instance.PlaySFX("");
+
             hasGrabbed = true;
             SwitchCursor(2);
             grabbedBody = hit.attachedRigidbody;

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using PrimeTween;
 using TMPro;
 using UnityEngine;
 
@@ -15,8 +16,16 @@ public class PanelInput : MonoBehaviour
 
     public void Submit()
     {
-        if(CheckAnswer()) {} //do something
-        else ClearFields();
+        
+        if(CheckAnswer())
+        {
+            SFXManager.Instance.PlaySFX("Select");
+            SequenceManager.Instance.NextScene(CurrentScene.LOADING2);
+        } //do something
+        else {
+            SFXManager.Instance.PlaySFX("Error");
+            ClearFields();
+        }
     }
 
     bool CheckAnswer()
@@ -31,11 +40,14 @@ public class PanelInput : MonoBehaviour
 
     public void ClearFields()
     {
+        SFXManager.Instance.PlaySFX("Select");
+        
         for(int i = 0; i < fields.Count; i++) fields[i].text = "";
     }
 
     public void InputNumber(int num)
     {
+        SFXManager.Instance.PlaySFX("Select");
         if(CheckCurrentField())
         {
             fields[currentFieldIndex].text += num;
