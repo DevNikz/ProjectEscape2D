@@ -64,7 +64,7 @@ public class PlayerController : MonoBehaviour
     void UpdateMouse()
     {
         if(!OnHover()) {
-            if(InputManager.Instance.IsMouseButtonDownThisFrame()) SFXManager.Instance.PlaySFX("Click");
+            if(InputManager.Instance.IsMouseButtonDownThisFrame()) SFXManager.Instance.PlayUI("Click");
         }
 
 

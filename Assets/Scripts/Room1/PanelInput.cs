@@ -8,6 +8,13 @@ public class PanelInput : MonoBehaviour
     [SerializeField] List<TextMeshProUGUI> fields;
     [SerializeField] List<bool> fieldAllowed = new List<bool> {true, true, true, true};
     [SerializeField] int currentFieldIndex;
+    [SerializeField] RoomScript room;
+    string endInput;
+
+    bool pressedEnd;
+
+    public bool GetEnd() { return pressedEnd; }
+    public void SetEnd(bool value) { pressedEnd = value; }
 
     void Start()
     {
@@ -16,19 +23,60 @@ public class PanelInput : MonoBehaviour
 
     public void Submit()
     {
-        
-        if(CheckAnswer())
+
+        switch(SequenceManager.Instance.GetCurrentScene())
         {
-            SFXManager.Instance.PlaySFX("Select");
-            SequenceManager.Instance.NextScene(CurrentScene.LOADING2);
-        } //do something
-        else {
-            SFXManager.Instance.PlaySFX("Error");
-            ClearFields();
+            case CurrentScene.ROOM1:
+                if(CheckAnswerRoom1())
+                {
+                    SFXManager.Instance.PlayUI("Select");
+                    SequenceManager.Instance.NextScene(CurrentScene.LOADING2);
+                } //do something
+                else {
+                    SFXManager.Instance.PlayUI("Error");
+                    ClearFields();
+                }
+                break;
+            case CurrentScene.ROOM3:
+                if(CheckAnswerRoom1())
+                {
+                    SFXManager.Instance.PlayUI("Select");
+                    SequenceManager.Instance.NextScene(CurrentScene.LOADING5);
+                } //do something
+                else {
+                    SFXManager.Instance.PlayUI("Error");
+                    ClearFields();
+                }
+                break;
+            
+            case CurrentScene.ROOM2:
+                if(CheckAnswerRoom2())
+                {
+                    SFXManager.Instance.PlayUI("Select");
+                    SequenceManager.Instance.NextScene(CurrentScene.LOADING3);
+                    //room.InitJump();
+                } //do something
+                else {
+                    SFXManager.Instance.PlayUI("Error");
+                    ClearFields();
+                }
+                break;
+            case CurrentScene.ROOM4:
+                if(CheckAnswerEnd())
+                {
+                    SFXManager.Instance.PlayUI("Select");
+                    SequenceManager.Instance.NextScene(CurrentScene.END);
+                }
+                else {
+                    SFXManager.Instance.PlayUI("Error");
+                    ClearFields();
+                }
+                break;
         }
+        
     }
 
-    bool CheckAnswer()
+    bool CheckAnswerRoom1()
     {
         if(fields[0].text == "05" && fields[1].text == "89" &&
             fields[2].text == "07" && fields[3].text == "63")
@@ -38,19 +86,53 @@ public class PanelInput : MonoBehaviour
         else return false;
     }
 
+    bool CheckAnswerRoom2()
+    {
+        if(fields[0].text == "K6" && fields[1].text == "K4" &&
+            fields[2].text == "Q2" && fields[3].text == "Q3")
+        {
+            return true;
+        }
+        else return false;
+    }
+
+    bool CheckAnswerEnd()
+    {
+        if(endInput == "END")
+        {
+            return true;
+        }
+        else return false;
+    }
+
     public void ClearFields()
     {
-        SFXManager.Instance.PlaySFX("Select");
+        SFXManager.Instance.PlayUI("Error");
         
-        for(int i = 0; i < fields.Count; i++) fields[i].text = "";
+        endInput = "";
+        for(int i = 0; i < fields.Count; i++) {
+            fields[i].text = "";
+            fieldAllowed[i] = true;
+        }
     }
 
     public void InputNumber(int num)
     {
-        SFXManager.Instance.PlaySFX("Select");
+        SFXManager.Instance.PlayUI("Select");
         if(CheckCurrentField())
         {
             fields[currentFieldIndex].text += num;
+            if(!CheckCharCount()) fieldAllowed[currentFieldIndex] = false; 
+        }
+    }
+
+    public void InputLetter(string ch)
+    {
+        SFXManager.Instance.PlayUI("Select");
+        if(CheckCurrentField())
+        {
+            fields[currentFieldIndex].text += ch;
+            endInput += ch;
             if(!CheckCharCount()) fieldAllowed[currentFieldIndex] = false; 
         }
     }

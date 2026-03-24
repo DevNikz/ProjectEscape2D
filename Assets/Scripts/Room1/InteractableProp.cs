@@ -15,7 +15,7 @@ public class InteractableProp : InteractInterface
     [SerializeField] bool hasSecondaryTarget;
     [SerializeField] bool secondaryTargetState;
     GameObject highlight;
-    bool disableComponent;
+    [SerializeField] bool disableComponent;
 
     void Start()
     {
@@ -36,6 +36,7 @@ public class InteractableProp : InteractInterface
     {
         if(!disableComponent)
         {
+            Debug.Log($"{this.name}");
             PlayerController.Instance.SetOnHover(true);
             if(!hasNoRenderer) GetComponent<SpriteRenderer>().enabled = false;
             if(!invisHighlight) highlight.SetActive(true);
@@ -61,7 +62,7 @@ public class InteractableProp : InteractInterface
     public override void InteractObject()
     {
         if(!IsTargetAnObj) {
-            SFXManager.Instance.PlaySFX("Open");
+            SFXManager.Instance.PlayUI("Open");
             uiCanvas.SetActive(true);
             targetUI.SetActive(true);
             menuButton.SetActive(false);
@@ -69,7 +70,7 @@ public class InteractableProp : InteractInterface
             SequenceManager.Instance.SetCanvasOpen(true);
         }
         else {
-            SFXManager.Instance.PlaySFX("Select");
+            SFXManager.Instance.PlayUI("Select");
             targetObj.SetActive(true);
             gameObject.SetActive(false);
             if(hasSecondaryTarget) secondaryTarget.SetActive(secondaryTargetState);

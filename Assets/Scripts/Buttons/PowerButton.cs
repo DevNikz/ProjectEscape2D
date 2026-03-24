@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
@@ -23,14 +24,27 @@ public class PowerButton : MonoBehaviour
     {
         if(redCollider.GetDetect() && loadingScene.HasPoweredDown())
         {
-            SFXManager.Instance.PlaySFX("Select");
-            loadingScene.ResumeLoadingBar();
-            loadingScene.SetPowerDown(false);
-            hasBeenInteracted = true;
+            if(SequenceManager.Instance.GetCurrentScene() == CurrentScene.LOADING3)
+            {
+                loadingScene.RevealUI();
+            }
+
+            StartCoroutine(Resume());
+            
             // red.SetActive(false);
             // green.SetActive(true);
             // loadingScene.ResumeTextAnim();
         }
+    }
+
+    IEnumerator Resume()
+    {
+        yield return new WaitForSeconds(0.1f);
+
+        SFXManager.Instance.PlayUI("Select");
+        loadingScene.ResumeLoadingBar();
+        loadingScene.SetPowerDown(false);
+        hasBeenInteracted = true;
     }
 
     void Update()

@@ -2,8 +2,12 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Cinemachine;
-using Unity.VectorGraphics;
+
 using UnityEngine;
+
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 public enum CurrentScene
 {
@@ -12,7 +16,15 @@ public enum CurrentScene
     LOADING1,
     ROOM1,
     LOADING2,
-    INTERMISSION,
+    ROOM2,
+    LOADING3,
+    TITLE2,
+    NEXT_TITLE2,
+    LOADING4,
+    ROOM3,
+    LOADING5,
+    ROOM4,
+    END
 }
 
 public class SequenceManager : MonoBehaviour
@@ -22,7 +34,15 @@ public class SequenceManager : MonoBehaviour
     [SerializeField] NextTitleAnimater nextTitleAnimater; 
     [SerializeField] LoadingScene loadingScene;
     [SerializeField] RoomScript room1;
+    [SerializeField] RoomScript room2;
     [SerializeField] LoadingScene loadingScene2;
+    [SerializeField] LoadingScene loadingScene3;
+    [SerializeField] TitleAnimater title2;
+    [SerializeField] NextTitleAnimater nextTitle2;
+    [SerializeField] LoadingScene loadingScene4;
+    [SerializeField] RoomScript room3;
+    [SerializeField] LoadingScene loadingScene5;
+    [SerializeField] RoomScript room4;
     [SerializeField] CurrentScene currentScene;
     [SerializeField] GameObject CinemachineObject;
     [SerializeField] GameObject room2UI;
@@ -70,7 +90,15 @@ public class SequenceManager : MonoBehaviour
         FirstSetup();
         SetActiveFilter(0);
         SetCinemachineState(false);
+
+        // SFXManager.Instance.PlayMusic("Room1");
         targetFOV = CinemachineObject.GetComponent<CinemachineCamera>().Lens.OrthographicSize;
+    }
+
+    void Start()
+    {
+        StartCoroutine(TitleScreen());
+        //StartCoroutine(TO_ROOM4());
     }
 
     void Update()
@@ -106,8 +134,6 @@ public class SequenceManager : MonoBehaviour
             CinemachineObject.GetComponent<CinemachineCamera>().Lens.OrthographicSize = Mathf.Lerp(CinemachineObject.GetComponent<CinemachineCamera>().Lens.OrthographicSize, targetFOV, Time.deltaTime * 5f);
             CinemachineObject.transform.localPosition = Vector3.Lerp(CinemachineObject.transform.localPosition, new Vector3(0, 0, -10), Time.deltaTime * 5f);
         }
-
-        
     }
 
     void FirstSetup()
@@ -117,11 +143,6 @@ public class SequenceManager : MonoBehaviour
         {
             scenes[i].SetActive(false);
         }
-    }
-
-    void Start()
-    {
-        StartCoroutine(TitleScreen());   
     }
 
     IEnumerator TitleScreen()
@@ -159,8 +180,237 @@ public class SequenceManager : MonoBehaviour
             case CurrentScene.LOADING2:
                 StartCoroutine(TO_LOADING2());
                 break;
+            case CurrentScene.ROOM2:
+                StartCoroutine(TO_ROOM2());
+                break;
+            case CurrentScene.LOADING3:
+                StartCoroutine(TO_LOADING3());
+                break;
+            case CurrentScene.TITLE2:
+                BlackScreenManager.Instance.FadeIn();
+                StartCoroutine(SetupTitle2());
+                break;
+            case CurrentScene.NEXT_TITLE2:
+                StartCoroutine(NextTitle2());
+                break;
+            case CurrentScene.LOADING4:
+                StartCoroutine(TO_LOADING4());
+                break;
+            case CurrentScene.ROOM3:
+                StartCoroutine(TO_ROOM3());
+                break;
+            case CurrentScene.LOADING5:
+                StartCoroutine(TO_LOADING5());
+                break;
+            case CurrentScene.ROOM4:
+                StartCoroutine(TO_ROOM4());
+                break;
+            case CurrentScene.END:
+                StartCoroutine(Endgame());
+                break;
         }
     }
+
+    IEnumerator Endgame()
+    {
+        BlackScreenManager.Instance.FadeIn();
+
+        yield return new WaitForSeconds(5f);
+
+        Application.Quit();
+
+        #if UNITY_EDITOR
+        EditorApplication.isPlaying = false;
+        #endif
+    }
+
+    IEnumerator TO_LOADING4()
+    {
+        PlayerController.Instance.SetOnHover(false);
+        BlackScreenManager.Instance.FadeIn();
+        SFXManager.Instance.StopMusic();
+        SFXManager.Instance.StopCustomMusic();
+        SFXManager.Instance.StopVoice();
+        yield return new WaitForSeconds(1f);
+
+        SetCinemachineState(false);
+        SetActiveFilter(1);
+        scenes[8].SetActive(false);
+        scenes[9].SetActive(true);
+
+        yield return new WaitForSeconds(1f);
+        SFXManager.Instance.PlayMusic("Loading");
+        BlackScreenManager.Instance.FadeOut();
+
+        StartCoroutine(LOADING4());
+        
+    }
+    
+    IEnumerator LOADING4()
+    {
+        yield return new WaitForSeconds(1f);
+
+        loadingScene4.PlayTextAnim();
+        loadingScene4.PlayLoading2();
+        loadingScene4.ShowHintBar();
+    }
+
+    IEnumerator TO_ROOM3()
+    {
+        BlackScreenManager.Instance.FadeIn();
+        SFXManager.Instance.StopMusic();
+        yield return new WaitForSeconds(1f);
+
+        SFXManager.Instance.CheckSceneForAmbience();
+        SetCinemachineState(true);
+        SetActiveFilter(4);
+        scenes[9].SetActive(false);
+        scenes[10].SetActive(true);
+
+        yield return new WaitForSeconds(1f);
+
+        SFXManager.Instance.PlayMusic("Room1");
+        SFXManager.Instance.PlayVoice("Room1_VoiceClip");
+        BlackScreenManager.Instance.FadeOut();
+
+        StartCoroutine(ROOM3());
+    }
+
+    IEnumerator ROOM3()
+    {
+        yield return new WaitForSeconds(0.5f);
+
+        room3.AnimateObjective();
+    }
+
+    IEnumerator TO_LOADING5()
+    {
+        PlayerController.Instance.SetOnHover(false);
+        BlackScreenManager.Instance.FadeIn();
+        SFXManager.Instance.StopMusic();
+        SFXManager.Instance.StopCustomMusic();
+        SFXManager.Instance.StopVoice();
+        yield return new WaitForSeconds(1f);
+
+        SetCinemachineState(false);
+        SetActiveFilter(1);
+        scenes[10].SetActive(false);
+        scenes[11].SetActive(true);
+
+        yield return new WaitForSeconds(1f);
+        SFXManager.Instance.PlayMusic("Loading");
+        BlackScreenManager.Instance.FadeOut();
+
+        StartCoroutine(LOADING5());
+        
+    }
+    
+    IEnumerator LOADING5()
+    {
+        yield return new WaitForSeconds(1f);
+
+        loadingScene5.PlayTextAnim();
+        loadingScene5.PlayLoading2();
+        loadingScene5.ShowHintBar();
+    }
+
+    IEnumerator TO_ROOM4()
+    {
+        BlackScreenManager.Instance.FadeIn();
+        SFXManager.Instance.StopMusic();
+        yield return new WaitForSeconds(1f);
+
+        SFXManager.Instance.CheckSceneForAmbience();
+        SetCinemachineState(true);
+        SetActiveFilter(4);
+        scenes[11].SetActive(false);
+        scenes[12].SetActive(true);
+
+        yield return new WaitForSeconds(1f);
+
+        SFXManager.Instance.PlayMusic("Room1");
+        BlackScreenManager.Instance.FadeOut();
+
+        StartCoroutine(ROOM4());
+    }
+
+    IEnumerator ROOM4()
+    {
+        yield return new WaitForSeconds(0.5f);
+
+        room4.AnimateObjective();
+    }
+
+    IEnumerator SetupTitle2()
+    {
+        yield return null;
+        title2.HideScareText();
+        SetCinemachineState(false);
+        SetActiveFilter(1);
+        scenes[6].SetActive(false);
+        scenes[7].SetActive(true);
+
+        yield return new WaitForSeconds(1f);
+
+        BlackScreenManager.Instance.FadeOut();
+
+        yield return new WaitForSeconds(0.5f);
+
+        StartCoroutine(Title2()); 
+    }
+
+    IEnumerator Title2()
+    {
+        PlayerController.Instance.SetOnHover(false);
+        title2.PlayLogo();
+        SFXManager.Instance.PlayMusic("Title");
+        yield return new WaitForSeconds(2f);       
+        StartCoroutine(Blink2()); 
+    }
+
+    IEnumerator Blink2()
+    {
+        title2.PlayBlinkText();
+        PlayerController.Instance.SetOnHover(true);
+        title2.EnableButton();
+        yield return null; 
+    }
+
+    IEnumerator NextTitle2()
+    {
+        PlayerController.Instance.SetOnHover(false);
+        BlackScreenManager.Instance.FadeIn();
+        SFXManager.Instance.StopMusic();
+        yield return new WaitForSeconds(1f);
+
+        SFXManager.Instance.CheckSceneForAmbience();
+        scenes[7].SetActive(false);
+        scenes[8].SetActive(true);
+
+        yield return new WaitForSeconds(1f);
+
+        SFXManager.Instance.PlayMusic("NextTitle");
+        BlackScreenManager.Instance.FadeOut();
+
+        StartCoroutine(NEXT_Title2());
+    }
+
+    IEnumerator NEXT_Title2()
+    {
+        nextTitle2.PlayLogo();
+        yield return new WaitForSeconds(2f);       
+        StartCoroutine(NEXT_BlinkingText2()); 
+    }
+
+    IEnumerator NEXT_BlinkingText2()
+    {
+        nextTitle2.FormShape();
+        yield return new WaitForSeconds(0.25f);
+        PlayerController.Instance.SetOnHover(true);
+        nextTitle2.EnableButton();
+        yield return null; 
+    }
+
 
     IEnumerator To_NEXT_TITLE()
     {
@@ -240,7 +490,7 @@ public class SequenceManager : MonoBehaviour
         yield return new WaitForSeconds(1f);
 
         SFXManager.Instance.PlayMusic("Room1");
-        SFXManager.Instance.PlayVoice("Room1_Voice");
+        SFXManager.Instance.PlayVoice("Room1_VoiceClip");
         BlackScreenManager.Instance.FadeOut();
 
         StartCoroutine(ROOM1());
@@ -259,6 +509,7 @@ public class SequenceManager : MonoBehaviour
         BlackScreenManager.Instance.FadeIn();
         SFXManager.Instance.StopMusic();
         SFXManager.Instance.StopCustomMusic();
+        SFXManager.Instance.StopVoice();
         yield return new WaitForSeconds(1f);
 
         scenes[3].SetActive(false);
@@ -279,5 +530,64 @@ public class SequenceManager : MonoBehaviour
         loadingScene2.PlayTextAnim();
         loadingScene2.PlayLoading2();
         loadingScene2.ShowHintBar();
+    }
+
+    IEnumerator TO_ROOM2()
+    {
+        BlackScreenManager.Instance.FadeIn();
+        SFXManager.Instance.StopMusic();
+        yield return new WaitForSeconds(1f);
+
+        SFXManager.Instance.CheckSceneForAmbience();
+        SetCinemachineState(true);
+        SetActiveFilter(1);
+        scenes[4].SetActive(false);
+        scenes[5].SetActive(true);
+
+        yield return new WaitForSeconds(1f);
+
+        SFXManager.Instance.PlayMusic("Room1");
+        BlackScreenManager.Instance.FadeOut();
+
+        StartCoroutine(ROOM2());
+    }
+
+    IEnumerator ROOM2()
+    {
+        yield return new WaitForSeconds(0.5f);
+
+        room2.AnimateObjective();
+    }
+
+    IEnumerator TO_LOADING3()
+    {
+        yield return null;
+
+        BlackScreenManager.Instance.Block();
+        SFXManager.Instance.StopMusic();
+        SFXManager.Instance.StopCustomMusic();
+        SFXManager.Instance.PlaySFX("LightsBreak");
+        SFXManager.Instance.PlaySFX("PowerDown");
+
+        PlayerController.Instance.SetOnHover(false);
+
+        yield return new WaitForSeconds(1f);
+
+        SFXManager.Instance.PlayCustomMusic(2);
+
+        yield return new WaitForSeconds(3f);
+
+        scenes[5].SetActive(false);
+        scenes[6].SetActive(true); //black screen / loading turned off
+        loadingScene3.SetPowerDown(true);
+        BlackScreenManager.Instance.Unblock();
+
+        StartCoroutine(LOADING3());
+    }
+
+    IEnumerator LOADING3()
+    {
+        yield return new WaitForSeconds(1f);
+        loadingScene3.RevealLight();
     }
 }

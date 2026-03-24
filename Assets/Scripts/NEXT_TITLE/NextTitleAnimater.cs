@@ -37,7 +37,8 @@ public class NextTitleAnimater : MonoBehaviour
 
     public void FormShape()
     {
-        Tween.PositionY(textShape, yTextShape).OnComplete(PlayBlinkText);
+        if(SequenceManager.Instance.GetCurrentScene() == CurrentScene.NEXT_TITLE) Tween.PositionY(textShape, yTextShape).OnComplete(PlayBlinkText);
+        else Tween.UIAnchoredPositionY(textShape.GetComponent<RectTransform>(), yTextShape).OnComplete(PlayBlinkText);
     }
 
     public void PlayBlinkText()
@@ -54,6 +55,7 @@ public class NextTitleAnimater : MonoBehaviour
 
     public void NextScene()
     {
-        SequenceManager.Instance.NextScene(CurrentScene.LOADING1);
+        if (SequenceManager.Instance.GetCurrentScene() == CurrentScene.NEXT_TITLE) SequenceManager.Instance.NextScene(CurrentScene.LOADING1);
+        else if (SequenceManager.Instance.GetCurrentScene() == CurrentScene.NEXT_TITLE2) SequenceManager.Instance.NextScene(CurrentScene.LOADING4);
     }
 }

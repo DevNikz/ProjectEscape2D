@@ -401,11 +401,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 111
+        y: 112
         width: 16
-        height: 17
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -424,10 +424,10 @@ TextureImporter:
         serializedVersion: 2
         x: 16
         y: 112
-        width: 15
+        width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -444,12 +444,12 @@ TextureImporter:
       name: Icons_Boardgames_2
       rect:
         serializedVersion: 2
-        x: 16
-        y: 95
+        x: 32
+        y: 112
         width: 16
-        height: 18
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -466,12 +466,12 @@ TextureImporter:
       name: Icons_Boardgames_3
       rect:
         serializedVersion: 2
-        x: 32
+        x: 48
         y: 112
-        width: 15
+        width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -488,12 +488,12 @@ TextureImporter:
       name: Icons_Boardgames_4
       rect:
         serializedVersion: 2
-        x: 32
-        y: 95
+        x: 64
+        y: 112
         width: 16
-        height: 18
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -510,12 +510,12 @@ TextureImporter:
       name: Icons_Boardgames_5
       rect:
         serializedVersion: 2
-        x: 47
-        y: 95
-        width: 50
-        height: 33
+        x: 80
+        y: 112
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -532,12 +532,12 @@ TextureImporter:
       name: Icons_Boardgames_6
       rect:
         serializedVersion: 2
-        x: 96
-        y: 95
-        width: 33
-        height: 18
+        x: 128
+        y: 112
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -554,12 +554,12 @@ TextureImporter:
       name: Icons_Boardgames_7
       rect:
         serializedVersion: 2
-        x: 128
-        y: 113
-        width: 15
-        height: 15
+        x: 144
+        y: 112
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -576,12 +576,12 @@ TextureImporter:
       name: Icons_Boardgames_8
       rect:
         serializedVersion: 2
-        x: 146
-        y: 113
-        width: 12
-        height: 15
+        x: 160
+        y: 112
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -598,12 +598,12 @@ TextureImporter:
       name: Icons_Boardgames_9
       rect:
         serializedVersion: 2
-        x: 161
-        y: 111
-        width: 14
-        height: 17
+        x: 176
+        y: 112
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -620,12 +620,12 @@ TextureImporter:
       name: Icons_Boardgames_10
       rect:
         serializedVersion: 2
-        x: 176
+        x: 192
         y: 112
-        width: 15
+        width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -642,12 +642,12 @@ TextureImporter:
       name: Icons_Boardgames_11
       rect:
         serializedVersion: 2
-        x: 193
+        x: 208
         y: 112
-        width: 14
-        height: 15
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -664,12 +664,12 @@ TextureImporter:
       name: Icons_Boardgames_12
       rect:
         serializedVersion: 2
-        x: 209
-        y: 112
-        width: 13
+        x: 0
+        y: 96
+        width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -686,12 +686,12 @@ TextureImporter:
       name: Icons_Boardgames_13
       rect:
         serializedVersion: 2
-        x: 0
-        y: 95
+        x: 16
+        y: 96
         width: 16
-        height: 17
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -708,12 +708,12 @@ TextureImporter:
       name: Icons_Boardgames_14
       rect:
         serializedVersion: 2
-        x: 0
-        y: 79
+        x: 32
+        y: 96
         width: 16
-        height: 17
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -730,12 +730,12 @@ TextureImporter:
       name: Icons_Boardgames_15
       rect:
         serializedVersion: 2
-        x: 16
-        y: 80
-        width: 15
-        height: 17
+        x: 48
+        y: 96
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -752,12 +752,12 @@ TextureImporter:
       name: Icons_Boardgames_16
       rect:
         serializedVersion: 2
-        x: 32
-        y: 80
+        x: 64
+        y: 96
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -774,12 +774,12 @@ TextureImporter:
       name: Icons_Boardgames_17
       rect:
         serializedVersion: 2
-        x: 48
-        y: 80
+        x: 80
+        y: 96
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -796,12 +796,12 @@ TextureImporter:
       name: Icons_Boardgames_18
       rect:
         serializedVersion: 2
-        x: 64
-        y: 80
+        x: 96
+        y: 96
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -818,12 +818,12 @@ TextureImporter:
       name: Icons_Boardgames_19
       rect:
         serializedVersion: 2
-        x: 80
-        y: 80
+        x: 112
+        y: 96
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -840,12 +840,12 @@ TextureImporter:
       name: Icons_Boardgames_20
       rect:
         serializedVersion: 2
-        x: 96
-        y: 80
+        x: 128
+        y: 96
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -862,12 +862,12 @@ TextureImporter:
       name: Icons_Boardgames_21
       rect:
         serializedVersion: 2
-        x: 112
-        y: 80
+        x: 144
+        y: 96
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -884,12 +884,12 @@ TextureImporter:
       name: Icons_Boardgames_22
       rect:
         serializedVersion: 2
-        x: 128
-        y: 80
+        x: 160
+        y: 96
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -906,12 +906,12 @@ TextureImporter:
       name: Icons_Boardgames_23
       rect:
         serializedVersion: 2
-        x: 129
+        x: 176
         y: 96
-        width: 15
+        width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -928,12 +928,12 @@ TextureImporter:
       name: Icons_Boardgames_24
       rect:
         serializedVersion: 2
-        x: 143
+        x: 192
         y: 96
-        width: 17
+        width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -950,12 +950,12 @@ TextureImporter:
       name: Icons_Boardgames_25
       rect:
         serializedVersion: 2
-        x: 146
+        x: 0
         y: 80
-        width: 12
+        width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -972,12 +972,12 @@ TextureImporter:
       name: Icons_Boardgames_26
       rect:
         serializedVersion: 2
-        x: 160
+        x: 16
         y: 80
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -994,12 +994,12 @@ TextureImporter:
       name: Icons_Boardgames_27
       rect:
         serializedVersion: 2
-        x: 161
-        y: 96
-        width: 15
-        height: 15
+        x: 32
+        y: 80
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1016,12 +1016,12 @@ TextureImporter:
       name: Icons_Boardgames_28
       rect:
         serializedVersion: 2
-        x: 175
-        y: 96
-        width: 18
-        height: 15
+        x: 48
+        y: 80
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1038,12 +1038,12 @@ TextureImporter:
       name: Icons_Boardgames_29
       rect:
         serializedVersion: 2
-        x: 177
+        x: 64
         y: 80
-        width: 15
+        width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1060,12 +1060,12 @@ TextureImporter:
       name: Icons_Boardgames_30
       rect:
         serializedVersion: 2
-        x: 193
+        x: 80
         y: 80
-        width: 15
+        width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1082,12 +1082,12 @@ TextureImporter:
       name: Icons_Boardgames_31
       rect:
         serializedVersion: 2
-        x: 194
-        y: 95
-        width: 12
-        height: 17
+        x: 96
+        y: 80
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1104,12 +1104,12 @@ TextureImporter:
       name: Icons_Boardgames_32
       rect:
         serializedVersion: 2
-        x: 208
+        x: 112
         y: 80
-        width: 17
+        width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1126,12 +1126,12 @@ TextureImporter:
       name: Icons_Boardgames_33
       rect:
         serializedVersion: 2
-        x: 244
-        y: 78
-        width: 7
-        height: 19
+        x: 128
+        y: 80
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1148,12 +1148,12 @@ TextureImporter:
       name: Icons_Boardgames_34
       rect:
         serializedVersion: 2
-        x: 1
-        y: 48
-        width: 13
+        x: 144
+        y: 80
+        width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1170,12 +1170,12 @@ TextureImporter:
       name: Icons_Boardgames_35
       rect:
         serializedVersion: 2
-        x: 2
-        y: 64
-        width: 12
+        x: 160
+        y: 80
+        width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1192,12 +1192,12 @@ TextureImporter:
       name: Icons_Boardgames_36
       rect:
         serializedVersion: 2
-        x: 17
-        y: 48
-        width: 13
+        x: 176
+        y: 80
+        width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1214,12 +1214,12 @@ TextureImporter:
       name: Icons_Boardgames_37
       rect:
         serializedVersion: 2
-        x: 18
-        y: 64
-        width: 12
+        x: 192
+        y: 80
+        width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1236,12 +1236,12 @@ TextureImporter:
       name: Icons_Boardgames_38
       rect:
         serializedVersion: 2
-        x: 33
-        y: 48
-        width: 13
+        x: 208
+        y: 80
+        width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1258,12 +1258,12 @@ TextureImporter:
       name: Icons_Boardgames_39
       rect:
         serializedVersion: 2
-        x: 34
-        y: 64
-        width: 12
+        x: 240
+        y: 80
+        width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1280,12 +1280,12 @@ TextureImporter:
       name: Icons_Boardgames_40
       rect:
         serializedVersion: 2
-        x: 49
-        y: 48
-        width: 13
+        x: 0
+        y: 64
+        width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1302,12 +1302,12 @@ TextureImporter:
       name: Icons_Boardgames_41
       rect:
         serializedVersion: 2
-        x: 50
+        x: 16
         y: 64
-        width: 12
+        width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1324,12 +1324,12 @@ TextureImporter:
       name: Icons_Boardgames_42
       rect:
         serializedVersion: 2
-        x: 65
-        y: 48
-        width: 13
+        x: 32
+        y: 64
+        width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1346,12 +1346,12 @@ TextureImporter:
       name: Icons_Boardgames_43
       rect:
         serializedVersion: 2
-        x: 66
+        x: 48
         y: 64
-        width: 12
+        width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1368,12 +1368,12 @@ TextureImporter:
       name: Icons_Boardgames_44
       rect:
         serializedVersion: 2
-        x: 81
-        y: 48
-        width: 13
+        x: 64
+        y: 64
+        width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1390,12 +1390,12 @@ TextureImporter:
       name: Icons_Boardgames_45
       rect:
         serializedVersion: 2
-        x: 82
+        x: 80
         y: 64
-        width: 12
+        width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1412,12 +1412,12 @@ TextureImporter:
       name: Icons_Boardgames_46
       rect:
         serializedVersion: 2
-        x: 97
-        y: 48
-        width: 13
+        x: 96
+        y: 64
+        width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1434,12 +1434,12 @@ TextureImporter:
       name: Icons_Boardgames_47
       rect:
         serializedVersion: 2
-        x: 98
+        x: 112
         y: 64
-        width: 12
+        width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1456,12 +1456,12 @@ TextureImporter:
       name: Icons_Boardgames_48
       rect:
         serializedVersion: 2
-        x: 113
-        y: 49
-        width: 13
-        height: 15
+        x: 128
+        y: 64
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1478,12 +1478,12 @@ TextureImporter:
       name: Icons_Boardgames_49
       rect:
         serializedVersion: 2
-        x: 114
+        x: 144
         y: 64
-        width: 12
+        width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1500,12 +1500,12 @@ TextureImporter:
       name: Icons_Boardgames_50
       rect:
         serializedVersion: 2
-        x: 130
+        x: 160
         y: 64
-        width: 12
+        width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1522,12 +1522,12 @@ TextureImporter:
       name: Icons_Boardgames_51
       rect:
         serializedVersion: 2
-        x: 144
-        y: 49
-        width: 15
-        height: 15
+        x: 176
+        y: 64
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1544,12 +1544,12 @@ TextureImporter:
       name: Icons_Boardgames_52
       rect:
         serializedVersion: 2
-        x: 146
+        x: 192
         y: 64
-        width: 12
+        width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1566,12 +1566,12 @@ TextureImporter:
       name: Icons_Boardgames_53
       rect:
         serializedVersion: 2
-        x: 161
+        x: 208
         y: 64
-        width: 13
+        width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1588,12 +1588,12 @@ TextureImporter:
       name: Icons_Boardgames_54
       rect:
         serializedVersion: 2
-        x: 178
+        x: 224
         y: 64
-        width: 12
+        width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1610,12 +1610,12 @@ TextureImporter:
       name: Icons_Boardgames_55
       rect:
         serializedVersion: 2
-        x: 194
+        x: 240
         y: 64
-        width: 12
+        width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1632,12 +1632,12 @@ TextureImporter:
       name: Icons_Boardgames_56
       rect:
         serializedVersion: 2
-        x: 210
-        y: 64
-        width: 12
+        x: 0
+        y: 48
+        width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1654,12 +1654,12 @@ TextureImporter:
       name: Icons_Boardgames_57
       rect:
         serializedVersion: 2
-        x: 226
-        y: 64
-        width: 12
+        x: 16
+        y: 48
+        width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1676,12 +1676,12 @@ TextureImporter:
       name: Icons_Boardgames_58
       rect:
         serializedVersion: 2
-        x: 128
-        y: 49
-        width: 15
-        height: 14
+        x: 32
+        y: 48
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1698,12 +1698,12 @@ TextureImporter:
       name: Icons_Boardgames_59
       rect:
         serializedVersion: 2
-        x: 160
-        y: 49
-        width: 15
-        height: 14
+        x: 48
+        y: 48
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1720,12 +1720,12 @@ TextureImporter:
       name: Icons_Boardgames_60
       rect:
         serializedVersion: 2
-        x: 176
-        y: 51
-        width: 15
-        height: 11
+        x: 64
+        y: 48
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1742,12 +1742,12 @@ TextureImporter:
       name: Icons_Boardgames_61
       rect:
         serializedVersion: 2
-        x: 192
-        y: 51
-        width: 15
-        height: 11
+        x: 80
+        y: 48
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1764,12 +1764,12 @@ TextureImporter:
       name: Icons_Boardgames_62
       rect:
         serializedVersion: 2
-        x: 208
-        y: 51
-        width: 15
-        height: 11
+        x: 96
+        y: 48
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1786,12 +1786,12 @@ TextureImporter:
       name: Icons_Boardgames_63
       rect:
         serializedVersion: 2
-        x: 224
-        y: 51
-        width: 15
-        height: 11
+        x: 112
+        y: 48
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1808,12 +1808,12 @@ TextureImporter:
       name: Icons_Boardgames_64
       rect:
         serializedVersion: 2
-        x: 240
-        y: 50
-        width: 15
-        height: 11
+        x: 128
+        y: 48
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1830,12 +1830,12 @@ TextureImporter:
       name: Icons_Boardgames_65
       rect:
         serializedVersion: 2
-        x: 0
-        y: 32
+        x: 144
+        y: 48
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1852,12 +1852,12 @@ TextureImporter:
       name: Icons_Boardgames_66
       rect:
         serializedVersion: 2
-        x: 16
-        y: 32
+        x: 160
+        y: 48
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1874,12 +1874,12 @@ TextureImporter:
       name: Icons_Boardgames_67
       rect:
         serializedVersion: 2
-        x: 32
-        y: 32
+        x: 176
+        y: 48
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1896,12 +1896,12 @@ TextureImporter:
       name: Icons_Boardgames_68
       rect:
         serializedVersion: 2
-        x: 48
-        y: 32
+        x: 192
+        y: 48
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1918,12 +1918,12 @@ TextureImporter:
       name: Icons_Boardgames_69
       rect:
         serializedVersion: 2
-        x: 64
-        y: 32
+        x: 208
+        y: 48
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1940,12 +1940,12 @@ TextureImporter:
       name: Icons_Boardgames_70
       rect:
         serializedVersion: 2
-        x: 79
-        y: 0
-        width: 17
-        height: 33
+        x: 224
+        y: 48
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1962,12 +1962,12 @@ TextureImporter:
       name: Icons_Boardgames_71
       rect:
         serializedVersion: 2
-        x: 80
-        y: 32
+        x: 240
+        y: 48
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1984,12 +1984,12 @@ TextureImporter:
       name: Icons_Boardgames_72
       rect:
         serializedVersion: 2
-        x: 96
+        x: 0
         y: 32
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2006,12 +2006,12 @@ TextureImporter:
       name: Icons_Boardgames_73
       rect:
         serializedVersion: 2
-        x: 112
+        x: 16
         y: 32
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2028,12 +2028,12 @@ TextureImporter:
       name: Icons_Boardgames_74
       rect:
         serializedVersion: 2
-        x: 128
+        x: 32
         y: 32
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2050,12 +2050,12 @@ TextureImporter:
       name: Icons_Boardgames_75
       rect:
         serializedVersion: 2
-        x: 144
+        x: 48
         y: 32
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2072,12 +2072,12 @@ TextureImporter:
       name: Icons_Boardgames_76
       rect:
         serializedVersion: 2
-        x: 160
-        y: 31
+        x: 64
+        y: 32
         width: 16
-        height: 17
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2094,12 +2094,12 @@ TextureImporter:
       name: Icons_Boardgames_77
       rect:
         serializedVersion: 2
-        x: 178
-        y: 33
-        width: 11
-        height: 15
+        x: 80
+        y: 32
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2116,12 +2116,12 @@ TextureImporter:
       name: Icons_Boardgames_78
       rect:
         serializedVersion: 2
-        x: 194
-        y: 33
-        width: 11
-        height: 15
+        x: 96
+        y: 32
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2138,12 +2138,12 @@ TextureImporter:
       name: Icons_Boardgames_79
       rect:
         serializedVersion: 2
-        x: 210
-        y: 33
-        width: 11
-        height: 15
+        x: 112
+        y: 32
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2160,12 +2160,12 @@ TextureImporter:
       name: Icons_Boardgames_80
       rect:
         serializedVersion: 2
-        x: 226
-        y: 33
-        width: 11
-        height: 15
+        x: 128
+        y: 32
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2182,12 +2182,12 @@ TextureImporter:
       name: Icons_Boardgames_81
       rect:
         serializedVersion: 2
-        x: 242
-        y: 33
-        width: 11
-        height: 15
+        x: 144
+        y: 32
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2204,12 +2204,12 @@ TextureImporter:
       name: Icons_Boardgames_82
       rect:
         serializedVersion: 2
-        x: 2
-        y: 15
-        width: 11
-        height: 14
+        x: 160
+        y: 32
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2226,12 +2226,12 @@ TextureImporter:
       name: Icons_Boardgames_83
       rect:
         serializedVersion: 2
-        x: 17
-        y: 15
-        width: 13
-        height: 15
+        x: 176
+        y: 32
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2248,12 +2248,12 @@ TextureImporter:
       name: Icons_Boardgames_84
       rect:
         serializedVersion: 2
-        x: 33
-        y: 15
-        width: 13
+        x: 192
+        y: 32
+        width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2270,12 +2270,12 @@ TextureImporter:
       name: Icons_Boardgames_85
       rect:
         serializedVersion: 2
-        x: 50
-        y: 15
-        width: 11
-        height: 17
+        x: 208
+        y: 32
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2292,12 +2292,12 @@ TextureImporter:
       name: Icons_Boardgames_86
       rect:
         serializedVersion: 2
-        x: 63
-        y: 0
-        width: 17
-        height: 32
+        x: 224
+        y: 32
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2314,12 +2314,12 @@ TextureImporter:
       name: Icons_Boardgames_87
       rect:
         serializedVersion: 2
-        x: 176
-        y: 19
-        width: 15
-        height: 11
+        x: 240
+        y: 32
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2336,12 +2336,12 @@ TextureImporter:
       name: Icons_Boardgames_88
       rect:
         serializedVersion: 2
-        x: 192
-        y: 19
-        width: 15
-        height: 11
+        x: 0
+        y: 16
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2358,12 +2358,12 @@ TextureImporter:
       name: Icons_Boardgames_89
       rect:
         serializedVersion: 2
-        x: 209
-        y: 19
-        width: 15
-        height: 11
+        x: 16
+        y: 16
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2380,12 +2380,12 @@ TextureImporter:
       name: Icons_Boardgames_90
       rect:
         serializedVersion: 2
-        x: 226
-        y: 19
-        width: 11
-        height: 11
+        x: 32
+        y: 16
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2402,12 +2402,12 @@ TextureImporter:
       name: Icons_Boardgames_91
       rect:
         serializedVersion: 2
-        x: 244
-        y: 21
-        width: 7
-        height: 7
+        x: 48
+        y: 16
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2424,12 +2424,12 @@ TextureImporter:
       name: Icons_Boardgames_92
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 17
+        x: 64
+        y: 16
+        width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2446,12 +2446,12 @@ TextureImporter:
       name: Icons_Boardgames_93
       rect:
         serializedVersion: 2
-        x: 18
-        y: 0
-        width: 11
-        height: 14
+        x: 80
+        y: 16
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2468,12 +2468,12 @@ TextureImporter:
       name: Icons_Boardgames_94
       rect:
         serializedVersion: 2
-        x: 34
-        y: 0
-        width: 12
-        height: 15
+        x: 176
+        y: 16
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2490,12 +2490,12 @@ TextureImporter:
       name: Icons_Boardgames_95
       rect:
         serializedVersion: 2
-        x: 50
-        y: 0
-        width: 11
+        x: 192
+        y: 16
+        width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2512,12 +2512,12 @@ TextureImporter:
       name: Icons_Boardgames_96
       rect:
         serializedVersion: 2
-        x: 178
-        y: 1
-        width: 11
-        height: 15
+        x: 208
+        y: 16
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2534,12 +2534,12 @@ TextureImporter:
       name: Icons_Boardgames_97
       rect:
         serializedVersion: 2
-        x: 194
-        y: 1
-        width: 11
-        height: 15
+        x: 224
+        y: 16
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2556,12 +2556,12 @@ TextureImporter:
       name: Icons_Boardgames_98
       rect:
         serializedVersion: 2
-        x: 210
-        y: 1
-        width: 11
-        height: 15
+        x: 240
+        y: 16
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2578,12 +2578,12 @@ TextureImporter:
       name: Icons_Boardgames_99
       rect:
         serializedVersion: 2
-        x: 223
-        y: 5
-        width: 19
-        height: 7
+        x: 0
+        y: 0
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2596,11 +2596,231 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Icons_Boardgames_100
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8deb405391876d74e8a78d770e58b9d6
+      internalID: 532231783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icons_Boardgames_101
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94cc0fbdbd3e055439c645734fdcb202
+      internalID: -903728971
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icons_Boardgames_102
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2abd56a77be581445b922bf85ee612cf
+      internalID: 1045694601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icons_Boardgames_103
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b7ed349ed753c94e9e57b163c622df8
+      internalID: -157747375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icons_Boardgames_104
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e7f9d1798bcdf247a407712cd276006
+      internalID: -280570731
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icons_Boardgames_105
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df198e050b5ebc84ab766b286cb07c16
+      internalID: 1789961061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icons_Boardgames_106
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8fd78564dfd118641b72e74fd1189cb6
+      internalID: 1531372237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icons_Boardgames_107
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31596d58790839049b317832911fc749
+      internalID: -748356708
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icons_Boardgames_108
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f821634a4b4706b43b65e3184e92b958
+      internalID: -2080492996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icons_Boardgames_109
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 206e5a79e86f0804ab154c71b14075f8
+      internalID: 1282865469
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 08a663e0d8ed0d449b5f7d6110076dd4
     internalID: 0
     vertices: []
     indices: 
@@ -2608,11 +2828,23 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":16.0,"y":16.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       Icons_Boardgames_0: -7596512618084401902
       Icons_Boardgames_1: 3345204157490897052
       Icons_Boardgames_10: 453266397930109714
+      Icons_Boardgames_100: 532231783
+      Icons_Boardgames_101: -903728971
+      Icons_Boardgames_102: 1045694601
+      Icons_Boardgames_103: -157747375
+      Icons_Boardgames_104: -280570731
+      Icons_Boardgames_105: 1789961061
+      Icons_Boardgames_106: 1531372237
+      Icons_Boardgames_107: -748356708
+      Icons_Boardgames_108: -2080492996
+      Icons_Boardgames_109: 1282865469
       Icons_Boardgames_11: 2040932087538563279
       Icons_Boardgames_12: -8301585401409956620
       Icons_Boardgames_13: -4479834876101483457

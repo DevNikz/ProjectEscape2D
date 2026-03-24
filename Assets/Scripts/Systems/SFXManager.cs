@@ -13,6 +13,7 @@ public class SFXManager : MonoBehaviour
     [SerializeField] private AudioSource sfxSource;
     [SerializeField] private AudioSource musicSource;
     [SerializeField] private AudioSource voiceSource;
+    [SerializeField] private AudioSource uiSource;
     [SerializeField] private List<AudioSource> customMusicList;
     [SerializeField] private AudioMixer masterMixer;
 
@@ -34,6 +35,7 @@ public class SFXManager : MonoBehaviour
         sfxSource = GetComponentsInChildren<AudioSource>()[0]; //first in hierarchy
         musicSource = GetComponentsInChildren<AudioSource>()[1];
         voiceSource = GetComponentsInChildren<AudioSource>()[2];
+        uiSource = GetComponentsInChildren<AudioSource>()[3];
         //SwitchAudio();
     }
 
@@ -105,6 +107,19 @@ public class SFXManager : MonoBehaviour
     public void StopSFX()
     {
         if(sfxSource != null && sfxSource.isPlaying) sfxSource.Stop();
+    }
+
+    public void PlayUI(string name)
+    {
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+        if (s == null || s.clip == null || uiSource == null) return;    
+
+        uiSource.PlayOneShot(s.clip, s.volume);
+    }
+
+    public void StopUI()
+    {
+        if(uiSource != null && uiSource.isPlaying) uiSource.Stop();
     }
 
     public void PlaySFXAtPosition(string name, Vector3 position)
