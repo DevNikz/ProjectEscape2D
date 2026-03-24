@@ -38,7 +38,7 @@ public class PanelInput : MonoBehaviour
                 }
                 break;
             case CurrentScene.ROOM3:
-                if(CheckAnswerRoom1())
+                if(CheckAnswerRoom3())
                 {
                     SFXManager.Instance.PlayUI("Select");
                     SequenceManager.Instance.NextScene(CurrentScene.LOADING5);
@@ -90,6 +90,16 @@ public class PanelInput : MonoBehaviour
     {
         if(fields[0].text == "K6" && fields[1].text == "K4" &&
             fields[2].text == "Q2" && fields[3].text == "Q3")
+        {
+            return true;
+        }
+        else return false;
+    }
+
+    bool CheckAnswerRoom3()
+    {
+        if(fields[0].text == "22" && fields[1].text == "03" &&
+            fields[2].text == "06" && fields[3].text == "07")
         {
             return true;
         }

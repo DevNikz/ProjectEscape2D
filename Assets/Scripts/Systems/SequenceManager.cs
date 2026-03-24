@@ -270,7 +270,7 @@ public class SequenceManager : MonoBehaviour
         yield return new WaitForSeconds(1f);
 
         SFXManager.Instance.PlayMusic("Room1");
-        SFXManager.Instance.PlayVoice("Room1_VoiceClip");
+        //SFXManager.Instance.PlayVoice("Room1_VoiceClip");
         BlackScreenManager.Instance.FadeOut();
 
         StartCoroutine(ROOM3());

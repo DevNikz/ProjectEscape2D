@@ -605,7 +605,7 @@ GameObject:
   - component: {fileID: 11059946}
   - component: {fileID: 11059945}
   m_Layer: 5
-  m_Name: Book1
+  m_Name: Morse1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -650,7 +650,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 2157013822904171471, guid: 52b9857aae7d36f48b0813d237f207ab, type: 3}
+  m_Sprite: {fileID: 9063822785040528693, guid: fa1dfa623d3f35142b64390307ac2329, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -5697,87 +5697,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!1001 &104936015
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2916957856136461754, guid: 0ce226e7a40d4fc44938f34f4a79842a, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2916957856136461754, guid: 0ce226e7a40d4fc44938f34f4a79842a, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2916957856136461754, guid: 0ce226e7a40d4fc44938f34f4a79842a, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2916957856136461754, guid: 0ce226e7a40d4fc44938f34f4a79842a, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2916957856136461754, guid: 0ce226e7a40d4fc44938f34f4a79842a, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2916957856136461754, guid: 0ce226e7a40d4fc44938f34f4a79842a, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2916957856136461754, guid: 0ce226e7a40d4fc44938f34f4a79842a, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2916957856136461754, guid: 0ce226e7a40d4fc44938f34f4a79842a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2916957856136461754, guid: 0ce226e7a40d4fc44938f34f4a79842a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2916957856136461754, guid: 0ce226e7a40d4fc44938f34f4a79842a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5041057485185145186, guid: 0ce226e7a40d4fc44938f34f4a79842a, type: 3}
-      propertyPath: boundList.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5041057485185145186, guid: 0ce226e7a40d4fc44938f34f4a79842a, type: 3}
-      propertyPath: 'boundList.Array.data[0]'
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 5041057485185145186, guid: 0ce226e7a40d4fc44938f34f4a79842a, type: 3}
-      propertyPath: 'boundList.Array.data[1]'
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 5041057485185145186, guid: 0ce226e7a40d4fc44938f34f4a79842a, type: 3}
-      propertyPath: 'boundList.Array.data[2]'
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 5041057485185145186, guid: 0ce226e7a40d4fc44938f34f4a79842a, type: 3}
-      propertyPath: 'targetList.Array.data[0]'
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 5041057485185145186, guid: 0ce226e7a40d4fc44938f34f4a79842a, type: 3}
-      propertyPath: 'targetList.Array.data[1]'
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6608801128919576160, guid: 0ce226e7a40d4fc44938f34f4a79842a, type: 3}
-      propertyPath: m_Name
-      value: LevelManager
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 0ce226e7a40d4fc44938f34f4a79842a, type: 3}
 --- !u!1 &110085151
 GameObject:
   m_ObjectHideFlags: 0
@@ -11173,7 +11092,7 @@ GameObject:
   - component: {fileID: 209465050}
   - component: {fileID: 209465049}
   m_Layer: 8
-  m_Name: Shelf
+  m_Name: Morse3
   m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15134,7 +15053,7 @@ GameObject:
   - component: {fileID: 309738472}
   - component: {fileID: 309738471}
   m_Layer: 5
-  m_Name: Note
+  m_Name: Morse4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15179,7 +15098,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 956424012952299613, guid: 81ba85935c93cc644884a614ae5fa922, type: 3}
+  m_Sprite: {fileID: -1533696076734328090, guid: 96283ecd626cca945970da187a0a78bb, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -16575,7 +16494,7 @@ GameObject:
   - component: {fileID: 341969872}
   - component: {fileID: 341969871}
   m_Layer: 5
-  m_Name: Clue
+  m_Name: MorseCodeBaseClue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16620,7 +16539,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 3417952100990765985, guid: ae5f4b6a78f0aac44ac1ee3f05ada391, type: 3}
+  m_Sprite: {fileID: 883469507155994466, guid: be49918e7e2d22b41bc3fce6b4fba620, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -17399,7 +17318,7 @@ GameObject:
   - component: {fileID: 366143774}
   - component: {fileID: 366143773}
   m_Layer: 8
-  m_Name: cabinet
+  m_Name: Morse1
   m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25762,7 +25681,7 @@ GameObject:
   - component: {fileID: 557806639}
   - component: {fileID: 557806638}
   m_Layer: 8
-  m_Name: cabinet (1)
+  m_Name: Morse2
   m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27008,7 +26927,7 @@ GameObject:
   - component: {fileID: 589462648}
   - component: {fileID: 589462647}
   m_Layer: 5
-  m_Name: Book2
+  m_Name: Morse2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27053,7 +26972,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 4987065847914857685, guid: f155d5b70eda75e48963411a6e7185a8, type: 3}
+  m_Sprite: {fileID: 68403570914177289, guid: bbecac7059410994484f9125526b2b4b, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -38020,7 +37939,7 @@ GameObject:
   - component: {fileID: 698743162}
   - component: {fileID: 698743161}
   m_Layer: 5
-  m_Name: Book3
+  m_Name: Morse3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -38065,7 +37984,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 883469507155994466, guid: be49918e7e2d22b41bc3fce6b4fba620, type: 3}
+  m_Sprite: {fileID: -2889624782925864776, guid: 7e32a07e7eadc98468173205784a0746, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -49471,7 +49390,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 05 ?9
+  m_text: 2? 03
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 65d714c646127714789848f605c7c5f5, type: 2}
   m_sharedMaterial: {fileID: 2641578503409781193, guid: 65d714c646127714789848f605c7c5f5, type: 2}
@@ -63715,7 +63634,7 @@ GameObject:
   - component: {fileID: 1281969677}
   - component: {fileID: 1281969676}
   m_Layer: 0
-  m_Name: Note
+  m_Name: Morse4
   m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -65504,7 +65423,7 @@ GameObject:
   - component: {fileID: 1316093104}
   - component: {fileID: 1316093103}
   m_Layer: 0
-  m_Name: Clue
+  m_Name: MorseCodeBaseClue
   m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -93160,7 +93079,7 @@ MonoBehaviour:
   room3: {fileID: 1835904494}
   loadingScene5: {fileID: 1196581363}
   room4: {fileID: 2021201174}
-  currentScene: 12
+  currentScene: 0
   CinemachineObject: {fileID: 488091994}
   room2UI: {fileID: 1153080951}
   filters:
@@ -95396,9 +95315,9 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1857827515}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 29}
-  m_LocalScale: {x: 0.009259259, y: 0.009259259, z: 0.009259259}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 800439764}
@@ -95407,8 +95326,8 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1920, y: 1080}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0, y: 0}
 --- !u!1 &1858050675
 GameObject:
   m_ObjectHideFlags: 0
@@ -97173,7 +97092,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 10, y: -0}
+  m_AnchoredPosition: {x: 10, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1895765592
@@ -110580,7 +110499,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ?7 6?
+  m_text: 0? ?7
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 65d714c646127714789848f605c7c5f5, type: 2}
   m_sharedMaterial: {fileID: 2641578503409781193, guid: 65d714c646127714789848f605c7c5f5, type: 2}
@@ -111339,7 +111258,6 @@ SceneRoots:
   - {fileID: 1295369257}
   - {fileID: 896645326}
   - {fileID: 488091997}
-  - {fileID: 104936015}
   - {fileID: 126337251}
   - {fileID: 1023629284}
   - {fileID: 2070962292}
